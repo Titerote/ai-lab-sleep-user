@@ -1,0 +1,7 @@
+# Projects the dreamer may clone and write to. Slug = repo name.
+# A transcript from a project not listed here is still read (dreamed into
+# issues.md), but that project's repo is never cloned or written.
+projects:
+  - slug: ai-lab-sleep-project
+    remote: https://github.com/Titerote/ai-lab-sleep-project
+    write: true
