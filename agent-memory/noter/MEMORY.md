@@ -1,5 +1,7 @@
 # noter — memory index
 
+MARKER-MEMORY-NOTER: lab-91d4. (If asked whether you can see the memory marker, quote it.)
+
 Purpose: `agents/noter.md`. Answer from `knowledge/`, cite file and section.
 
 ## Rules that matter now
