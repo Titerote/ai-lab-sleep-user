@@ -92,9 +92,12 @@ PY
 fi
 
 # Memory written by auto memory in the user clone goes straight to main too
-# (agent-memory/ only; agents, scripts and proposals keep the PR flow).
+# (agent-memory/ only; agents, scripts and proposals keep the PR flow) — but
+# only when a unit of work has ended: a subagent run, the session, or the
+# catch-up on resume. Per-turn events ship transcripts only.
 U="$SLEEP_HOME/user"
-if [ -d "$U/.git" ]; then
+case "$event" in SubagentStop|SessionEnd|SessionStart) ship_mem=1;; *) ship_mem=0;; esac
+if [ "$ship_mem" = 1 ] && [ -d "$U/.git" ]; then
   git -C "$U" add -A agent-memory >/dev/null 2>&1
   if ! git -C "$U" diff --cached --quiet; then
     git -C "$U" -c user.name=ship -c user.email=ship@ai-lab commit -q -m "memory: $slug $sid ($event)" && changed=1
