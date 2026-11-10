@@ -8,9 +8,12 @@ memory) decide what gets written and how. The dreamer normalizes afterwards.
 Two kinds of memory root, same layers:
 
 - `agent-memory/<agent>/` — a subagent's auto memory (`memory: user`).
-- `agent-memory/_main/<project>/` — the main session's auto memory for one
-  project, relocated there by `autoMemoryDirectory` in that project's
-  `.claude/settings.json`.
+- `agent-memory/_main/<project>/` — the default agent's memory: what a
+  context with no agent definition (a vanilla session, a fork) learns in one
+  project, keyed by project and relocated there by `autoMemoryDirectory` in
+  that project's `.claude/settings.json`. Memory belongs to the definition a
+  context runs under, not to "main vs subagent"; a subagent without
+  `memory:` has none.
 
 Auto memory's native layout is `MEMORY.md` plus topic files it names
 (`debugging.md`, `conventions.md`, ...). The dreamer treats every file that is
