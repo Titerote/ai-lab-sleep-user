@@ -14,7 +14,15 @@ try:
 except Exception:
     data = {"_unparsed": raw}
 event = data.get("hook_event_name", "unknown")
+def stat(p):
+    if not p: return None
+    p = os.path.expanduser(p)
+    try:
+        st = os.stat(p); return {"exists": True, "bytes": st.st_size, "mtime": datetime.datetime.fromtimestamp(st.st_mtime, datetime.timezone.utc).isoformat(timespec="seconds")}
+    except FileNotFoundError:
+        return {"exists": False, "parent_exists": os.path.isdir(os.path.dirname(p))}
 rec = {
+    "files": {"transcript_path": stat(data.get("transcript_path")), "agent_transcript_path": stat(data.get("agent_transcript_path"))},
     "ts": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds"),
     "event": event,
     "remote": os.environ.get("CLAUDE_CODE_REMOTE"),
