@@ -1,4 +1,11 @@
 ---
+status: confirmed
+project: ai-lab-sleep-project
+made: 2026-11-11
+settled: 2026-11-11
+evidence:
+  - transcripts/ai-lab-sleep-project/9bf920a0-6432-424f-85a9-cb26faa95501/main.jsonl  # user turn: "the descaler we use is the citric2 sachets"
+  - knowledge/descaling.md#procedure  # step 2 says only "citric descaler"; consistent, product name is user-only
 name: descaler-product
 description: "The specific descaler product used is \"citric2\" sachets (knowledge/descaling.md only says \"citric descaler\")"
 metadata:

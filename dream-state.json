@@ -1,4 +1,10 @@
 {
-  "last_settled": null,
-  "consumed": []
+  "last_settled": "2026-11-11",
+  "consumed": [
+    "tx/ai-lab-sleep-project/f1eb9a45-ebb0-5459-ad0e-2a1756fa35d3/main.jsonl",
+    "tx/ai-lab-sleep-project/b70f89e8-d860-4e8a-b7ce-1367c1d10742/main.jsonl",
+    "tx/ai-lab-sleep-project/edfe0f20-781c-469f-b262-23d97bc68f33/main.jsonl",
+    "tx/ai-lab-sleep-project/9bf920a0-6432-424f-85a9-cb26faa95501/main.jsonl",
+    "tx/ai-lab-sleep-project/4600eb0b-be42-415a-ad82-b44c3bffa0f6/main.jsonl"
+  ]
 }
