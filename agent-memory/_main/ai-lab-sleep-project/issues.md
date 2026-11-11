@@ -1,0 +1,2 @@
+- [ ] 2026-11-11 notes/descale-150-both-setups vs knowledge/water.md: water.md says 300 with filter, user says 150 either way; evidence to settle: user-approved edit of water.md or a dated filter-specific source.
+- [ ] 2026-11-11 descaler-product: links [[descaling-schedule]], which does not exist; relate cannot edit notes. Redirect to wiki/descaling when settle next touches the note.
