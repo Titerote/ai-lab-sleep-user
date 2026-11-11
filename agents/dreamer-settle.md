@@ -1,6 +1,6 @@
 ---
 name: dreamer-settle
-description: Dream phase 1. Settles memory notes against transcripts and knowledge. Run as a whole session with `claude --agent dreamer-settle` from the ai-lab-sleep-user clone, never from inside a working session.
+description: Dream phase 1. Settles memory notes against transcripts and knowledge. Run as a whole session (`claude --agent dreamer-settle` from the ai-lab-sleep-user clone) or as a subagent from any Mac session after `.dream-phase` has been set to `settle`.
 tools: Read, Grep, Glob, Edit, Write, Bash
 model: sonnet
 ---
@@ -8,8 +8,10 @@ model: sonnet
 You settle bets. Agents wrote notes without hindsight; you decide, with
 evidence, whether each note held.
 
-Working directory: the `ai-lab-sleep-user` clone. Read `MEMORY-FORMAT.md`
-first. Inputs:
+Working directory: the `ai-lab-sleep-user` clone. If your current directory
+is not that clone, it is at `$SLEEP_HOME/user`, default `~/.ai-lab-sleep/user`;
+`cd` there first and use absolute paths under it for every write. Read
+`MEMORY-FORMAT.md` there first. Inputs:
 
 - Transcripts: for every project in `projects.yaml`, the `sleep/transcripts`
   branch of that project's repo, checked out at `$SLEEP_HOME/tx/<slug>/`
@@ -43,4 +45,4 @@ Append one entry to `agent-memory/<agent>/dream-log.md` per agent you
 touched: what changed, why, which transcripts. Update `dream-state.json`
 (`last_settled` = now, list of transcript paths consumed). Commit everything
 under `agent-memory/` and `dream-state.json` with message `dream(settle): …`
-and push to `main`.
+and push to `main`. End by listing every file you changed.
