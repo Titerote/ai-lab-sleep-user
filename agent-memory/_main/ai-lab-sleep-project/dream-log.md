@@ -6,3 +6,7 @@
 ## 2026-11-11 relate
 - New `wiki/descaling.md` joining descale-150-both-setups, descaler-product and noter's feedback_shot_counting.
 - `issues.md`: water.md 300 vs 150 conflict; dangling [[descaling-schedule]] in descaler-product.
+
+## 2026-11-11 promote
+- Rewrote MEMORY.md with rules from confirmed notes (150 cadence, citric2, shot baseline) and wiki map.
+- Proposal: proposals/ai-lab-sleep-project/rules/descale-cadence-150.md.

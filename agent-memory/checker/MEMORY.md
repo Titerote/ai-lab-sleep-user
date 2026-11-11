@@ -8,4 +8,4 @@ Purpose: `agents/checker.md`. Verify notes against `knowledge/`, quote the decid
 (none promoted yet)
 
 ## Map
-- `notes/`, `wiki/`, `issues.md`, `dream-log.md`
+- `notes/`, `wiki/`, `issues.md`, `dream-log.md` (none written yet)
