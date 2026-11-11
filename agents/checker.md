@@ -11,3 +11,7 @@ it was known). Open the knowledge file(s) it cites, and any other file under
 `knowledge/` that bears on the claim. Report one of: holds, superseded (say by
 what), contradicted (say by what), unsupported (the cited file doesn't say it).
 Quote the exact line that decides it. You don't edit the note.
+
+If your context holds no memory index (some environments don't load it), read
+`~/.claude/agent-memory/checker/MEMORY.md` and `~/.claude/agent-memory/_user/MEMORY.md`
+before starting.
