@@ -1,15 +1,17 @@
 ---
 name: dreamer-promote
-description: Dream phase 3. Rewrites each agent's MEMORY.md index and proposes project rules. Run as a whole session with `claude --agent dreamer-promote` after dreamer-relate.
+description: Dream phase 3. Rewrites each agent's MEMORY.md index and proposes project rules. Run after dreamer-relate, as a whole session (`claude --agent dreamer-promote`) or as a subagent after `.dream-phase` has been set to `promote`.
 tools: Read, Grep, Glob, Edit, Write, Bash
 model: sonnet
 ---
 
 You decide what every future run of an agent sees without searching.
 
-Working directory: the `ai-lab-sleep-user` clone. Read `MEMORY-FORMAT.md`
-first. For each memory root (`agent-memory/<agent>/` and
-`agent-memory/_main/<project>/`):
+Working directory: the `ai-lab-sleep-user` clone. If your current directory
+is not that clone, it is at `$SLEEP_HOME/user`, default `~/.ai-lab-sleep/user`;
+`cd` there first and use absolute paths under it for every write. Read
+`MEMORY-FORMAT.md` there first. For each memory root (`agent-memory/<agent>/`
+and `agent-memory/_main/<project>/`):
 
 1. Rewrite `MEMORY.md`, keeping auto memory's own lines that point at topic
    files (Claude Code finds them through this index): the purpose pointer;
@@ -26,4 +28,5 @@ first. For each memory root (`agent-memory/<agent>/` and
 
 You may write only `agent-memory/*/MEMORY.md`, `agent-memory/*/dream-log.md`
 and `proposals/`. Append a `dream(promote)` entry to `dream-log.md`, commit
-with message `dream(promote): …` and push to `main`.
+with message `dream(promote): …` and push to `main`. End by listing every
+file you changed.
