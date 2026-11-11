@@ -22,13 +22,14 @@ and `agent-memory/_main/<project>/`):
    to each note with `[[notes/<slug>]]`, and links related pages with
    `[[wiki/<topic>]]`. Abstract; never copy transcript text. A page that is
    longer than the notes it summarizes is a failure.
-3. Fix links: every `[[...]]` in `wiki/` and `notes/` must resolve to a file.
-   Redirect a dangling link to the right page or remove it.
+3. Fix links inside `wiki/`: every `[[...]]` there must resolve to a file.
+   A dangling link inside a note is not yours to fix: add it to `issues.md`
+   with the target it should point to, and settle will redirect it.
 4. When notes contradict each other, or a confirmed note looks wrong in the
    light of another, do not change either note. Add a line to `issues.md`
    saying which notes, what the conflict is, and what evidence would settle it.
 
 You may write only under `wiki/` and `issues.md`. You never change a note's
-status or body, never touch `MEMORY.md`. Append a `dream(relate)` entry to
-`dream-log.md`, commit under `agent-memory/` with message `dream(relate): …`
-and push to `main`. End by listing every file you changed.
+status, body or links, never touch `MEMORY.md`. Append a `dream(relate)`
+entry to `dream-log.md`, commit under `agent-memory/` with message
+`dream(relate): …` and push to `main`. End by listing every file you changed.
