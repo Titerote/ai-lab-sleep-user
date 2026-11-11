@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 # PreToolUse guard for dream sessions: each phase may write only its layer.
-# Active only when DREAM_PHASE is set; otherwise a no-op. Exit 2 blocks the
-# tool and feeds the message back to the model.
+# The phase comes from DREAM_PHASE (CLI: `DREAM_PHASE=settle claude --agent
+# dreamer-settle`) or, when that is unset, from a `.dream-phase` file in the
+# repo root (app/phone: the main session writes the file, then runs the phase
+# as a subagent). No phase → no-op. Exit 2 blocks the tool and feeds the
+# message back to the model.
 #
 # Memory roots: agent-memory/<agent>/ (subagent auto memory) and
 # agent-memory/_main/<project>/ (the main session's auto memory, relocated
@@ -10,17 +13,22 @@
 #   L2  wiki/ and issues.md
 #   L3  MEMORY.md
 set -u
-[ -n "${DREAM_PHASE:-}" ] || exit 0
+root="${CLAUDE_PROJECT_DIR:-$PWD}"
+phase="${DREAM_PHASE:-}"
+[ -n "$phase" ] || phase="$(tr -d '[:space:]' <"$root/.dream-phase" 2>/dev/null)"
+[ -n "$phase" ] || exit 0
 input="$(cat)"
 path="$(python3 -c 'import json,sys; d=json.loads(sys.argv[1]); print(d.get("tool_input",{}).get("file_path") or d.get("tool_input",{}).get("path") or "")' "$input" 2>/dev/null)"
 [ -n "$path" ] || exit 0
-root="${CLAUDE_PROJECT_DIR:-$PWD}"
 rel="${path#$root/}"
 
-mem='agent-memory/(_main/[^/]+|[^/]+)'
-block() { echo "Blocked: phase '$DREAM_PHASE' may not write '$rel'. $1 Raise it in issues.md instead." >&2; exit 2; }
+# The phase file itself is always writable (the main session sets and clears it).
+[ "$rel" = ".dream-phase" ] && exit 0
 
-case "$DREAM_PHASE" in
+mem='agent-memory/(_main/[^/]+|[^/]+)'
+block() { echo "Blocked: phase '$phase' may not write '$rel'. $1 Raise it in issues.md instead." >&2; exit 2; }
+
+case "$phase" in
   settle)
     printf '%s' "$rel" | grep -Eq "^dream-state\.json$" && exit 0
     printf '%s' "$rel" | grep -Eq "^$mem/" || block "Settle writes only inside memory roots."
