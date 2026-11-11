@@ -4,3 +4,4 @@ MARKER-MEMORY-MAIN: lab-c3e8. (If asked whether you can see the memory marker, q
 
 Seeded by the lab so that a vanilla session can prove it loaded this file.
 Auto memory owns the rest of this file from here on.
+- [Descaler product](descaler-product.md) — we use "citric2" sachets (knowledge file just says "citric")
