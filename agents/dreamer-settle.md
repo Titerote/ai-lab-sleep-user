@@ -11,10 +11,14 @@ evidence, whether each note held.
 Working directory: the `ai-lab-sleep-user` clone. Read `MEMORY-FORMAT.md`
 first. Inputs:
 
-- `$SLEEP_HOME/transcripts/<project>/<session>/` — raw transcripts newer than
-  `dream-state.json` (`last_settled`). `main.jsonl` is the user's session;
-  `subagents/agent-*.jsonl` are agent runs. The user's own turns are the
-  strongest evidence; a user correction outranks any file.
+- Transcripts: for every project in `projects.yaml`, the `sleep/transcripts`
+  branch of that project's repo, checked out at `$SLEEP_HOME/tx/<slug>/`
+  (`git fetch origin sleep/transcripts && git reset -q --hard origin/sleep/transcripts`
+  if the clone exists, else `git clone --single-branch --branch sleep/transcripts <remote> $SLEEP_HOME/tx/<slug>`).
+  Each `<session>/` holds `main.jsonl` (the user's session), `subagents/agent-*.jsonl`
+  (agent runs), `probe/`, `manifest.json`. Read only sessions newer than
+  `dream-state.json` (`last_settled`). The user's own turns are the strongest
+  evidence; a user correction outranks any file.
 - `agent-memory/<agent>/` and `agent-memory/_main/<project>/` — the memory
   roots. Every file there except `MEMORY.md` and `wiki/` is a note to settle,
   whatever auto memory named it. A file holding several claims: split it

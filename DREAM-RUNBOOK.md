@@ -7,7 +7,8 @@ repo's `.claude/settings.json` (active only when `DREAM_PHASE` is set).
 ```bash
 cd ~/.ai-lab-sleep/user
 git pull --ff-only
-git -C ~/.ai-lab-sleep/transcripts pull --ff-only
+# transcripts are fetched by the settle phase itself, per project in projects.yaml,
+# from each project's sleep/transcripts branch into ~/.ai-lab-sleep/tx/<slug>/
 
 DREAM_PHASE=settle  claude --agent dreamer-settle  "Run the settle phase."
 DREAM_PHASE=relate  claude --agent dreamer-relate  "Run the relate phase."
@@ -33,5 +34,7 @@ the project, ask `noter` the question you corrected. It should answer from the
 settled note, citing it, without being told.
 
 Once a hand-run shows value, the same three commands become one claude.ai
-routine on an environment that has this repo and the transcripts repo
-attached; nothing in the prompts changes.
+routine. Constraint learned in the lab: a cloud session can push only to the
+repos attached to it, so the routine must have this repo attached (memory
+writes) and each project it dreams for (none are written, only fetched, so
+read access through the proxy is enough).

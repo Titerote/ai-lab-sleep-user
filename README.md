@@ -13,19 +13,22 @@ Person-scoped agents, their memory, and the dreamer. One clone per machine at
 | `MEMORY-FORMAT.md` | the note / wiki / index format the dreamer normalizes to | branch + PR |
 | `DREAM-RUNBOOK.md` | how to hand-run a dream (settle → relate → promote) | branch + PR |
 
-Sibling repos: `ai-lab-sleep-project` (a project under test) and
-`ai-lab-sleep-transcripts` (raw session transcripts, filed by project).
+Sibling repo: `ai-lab-sleep-project` (a project under test). Transcripts
+live on an orphan branch `sleep/transcripts` of each project's own repo,
+written by `scripts/ship.sh`; there is no transcripts repo (a cloud VM can
+push only to the repo attached to its session).
 
 ## Install on the Mac
 
 ```bash
 git clone git@github.com:Titerote/ai-lab-sleep-user.git ~/.ai-lab-sleep/user
-~/.ai-lab-sleep/user/scripts/install-mac.sh     # clones transcripts repo, makes the symlinks
+~/.ai-lab-sleep/user/scripts/install-mac.sh     # makes the symlinks
 ```
 
 ## Install in a cloud environment
 
 Paste `scripts/cloud-setup.sh` as the environment's setup script. It clones
-this repo and the transcripts repo into `/root/.ai-lab-sleep/` and makes the
-symlinks before Claude Code launches, so user-level agents load. The project's
-SessionStart hook pulls both on every session.
+this repo into `/root/.ai-lab-sleep/user` and makes the symlinks before
+Claude Code launches, so user-level agents load. The project's SessionStart
+hook pulls it on every session. Keep cloud sessions single-repo: attaching
+several repos disables the project's hooks.
