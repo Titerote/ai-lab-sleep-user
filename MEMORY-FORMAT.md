@@ -5,7 +5,7 @@ are told only what their memory is for; Claude Code's own memory
 instructions (injected when `memory:` is set, or for the main session's auto
 memory) decide what gets written and how. The dreamer normalizes afterwards.
 
-Two kinds of memory root, same layers:
+Memory roots, all with the same layers:
 
 - `agent-memory/<agent>/` — a subagent's auto memory (`memory: user`).
 - `agent-memory/_main/<project>/` — the default agent's memory: what a
@@ -14,6 +14,14 @@ Two kinds of memory root, same layers:
   that project's `.claude/settings.json`. Memory belongs to the definition a
   context runs under, not to "main vs subagent"; a subagent without
   `memory:` has none.
+- `agent-memory/_user/` — facts about the person. No native mechanism writes
+  here; promote routes notes to it, and its index is injected into every
+  session and mirrored into agent indexes.
+
+Where auto memory is off (cloud VMs), the indexes are injected at
+SessionStart and agents carry a pointer to read their own; what they write
+on the VM travels as `memory-outbox/` on the project's transcripts branch
+and the settle phase applies it here.
 
 Auto memory's native layout is `MEMORY.md` plus topic files it names
 (`debugging.md`, `conventions.md`, ...). The dreamer treats every file that is
@@ -31,8 +39,11 @@ holds several claims into `notes/<slug>.md`, leaving a link behind.
 ```markdown
 ---
 status: bet            # bet | confirmed | corrected | retired
+origin: note           # note: the agent wrote it at the moment (a real bet)
+                       # transcript: the agent only said it; settle wrote the note
+                       # filed: a user statement with no prior bet; a record, not a settlement
 project: ai-lab-sleep-project
-made: 2026-11-10
+made: 2026-11-10       # when the belief was held (the turn's time, for origin: transcript)
 settled:               # date, by settle
 evidence:              # filled by settle
   - transcripts/ai-lab-sleep-project/<session>/agent-<id>.jsonl
@@ -47,7 +58,10 @@ Rules:
 - One claim per note. If the agent wrote three claims in one file, settle splits them.
 - `corrected` keeps the old claim below a `## Was` heading so history reads in place.
 - `retired` notes are moved to `notes/_retired/`, never deleted (git keeps them anyway).
-- Writers never set `status`; a note without frontmatter is a `bet` by definition.
+- Writers never set `status` or `origin`; a note without frontmatter is a
+  `bet` of `origin: note` by definition.
+- The share of notes by origin, per agent, is the measure of whether the
+  writers file their bets or the dreamer has to recover them.
 
 ## L2 — wiki (`wiki/<topic>.md`)
 
