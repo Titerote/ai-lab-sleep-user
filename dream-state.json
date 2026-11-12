@@ -1,10 +1,18 @@
 {
-  "last_settled": "2026-11-11",
+  "last_settled": "2026-11-12",
   "consumed": [
     "tx/ai-lab-sleep-project/f1eb9a45-ebb0-5459-ad0e-2a1756fa35d3/main.jsonl",
     "tx/ai-lab-sleep-project/b70f89e8-d860-4e8a-b7ce-1367c1d10742/main.jsonl",
     "tx/ai-lab-sleep-project/edfe0f20-781c-469f-b262-23d97bc68f33/main.jsonl",
     "tx/ai-lab-sleep-project/9bf920a0-6432-424f-85a9-cb26faa95501/main.jsonl",
-    "tx/ai-lab-sleep-project/4600eb0b-be42-415a-ad82-b44c3bffa0f6/main.jsonl"
-  ]
+    "tx/ai-lab-sleep-project/4600eb0b-be42-415a-ad82-b44c3bffa0f6/main.jsonl",
+    "tx/ai-lab-sleep-project/3b4dc28f-b301-5149-aa5c-4eb570eb51fd/main.jsonl",
+    "tx/ai-lab-sleep-project/4be089a6-6cc4-4376-aa1a-9080e0c402ca/main.jsonl",
+    "tx/ai-lab-sleep-project/5764ef00-fe95-590d-a3c5-103b826f75b1/main.jsonl",
+    "tx/ai-lab-sleep-project/9db72d39-5774-4c30-aa23-7865067a9016/main.jsonl",
+    "tx/ai-lab-sleep-project/b7599df9-4f28-55c6-a0d6-b9651dfa0966/main.jsonl",
+    "tx/ai-lab-sleep-project/dac6cba5-a760-57e7-afa1-79e8b032b251/main.jsonl",
+    "tx/ai-lab-sleep-project/df733d06-5389-416f-961c-de36fcbd35da/main.jsonl"
+  ],
+  "outboxes_consumed": []
 }

@@ -10,3 +10,12 @@
 ## 2026-11-11 promote
 - Rewrote MEMORY.md with rules from confirmed notes (150 cadence, citric2, shot baseline) and wiki map.
 - Proposal: proposals/ai-lab-sleep-project/rules/descale-cadence-150.md.
+
+## 2026-11-12 settle
+- No memory-outbox in any new session; nothing to apply.
+- New `notes/beans-2kg-per-month.md` (confirmed, origin filed): user said ~2 kg beans/month (4be089a6). A record, not a settled bet.
+- New `notes/burr-40kg-figure-may-be-stale.md` (bet, origin transcript): main agent in dac6cba5 doubted the undated 40 kg burr figure; noter in 4be089a6 assumed it current. User's 2 kg/month x ~20 months ~ 40 kg leans against staleness but does not settle it; left open.
+- `descaler-product.md`: dangling [[descaling-schedule]] -> [[wiki/descaling]]; issue ticked. Set `origin: note` on it, on `descale-150-both-setups` and on noter's `feedback_shot_counting`.
+- 150-vs-300 issue remains open; 9db72d39 and 5764ef00 reuse the confirmed note, no new evidence.
+- Sessions with no claims to settle: 3b4dc28f (tailscale/ollama commands), b7599df9, d1e73852, df733d06 (lab-marker probes).
+- Counts settled by origin: note 0 re-settled (3 origin fields backfilled) / transcript 0 (1 left as bet) / filed 1.

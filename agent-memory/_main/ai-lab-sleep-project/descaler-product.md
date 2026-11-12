@@ -1,5 +1,6 @@
 ---
 status: confirmed
+origin: note
 project: ai-lab-sleep-project
 made: 2026-11-11
 settled: 2026-11-11
@@ -19,4 +20,4 @@ The descaler the user uses is the **citric2** sachets, one sachet per descale as
 
 **Why:** User stated it on 2026-11-11. `knowledge/descaling.md` only says "one sachet of citric descaler" and doesn't name the product.
 
-**How to apply:** When answering descaling questions, name "citric2 sachets" as the product. Keep the dose and schedule from `knowledge/descaling.md`. Related: [[descaling-schedule]].
+**How to apply:** When answering descaling questions, name "citric2 sachets" as the product. Keep the dose and schedule from `knowledge/descaling.md`. Related: [[wiki/descaling]].

@@ -1,5 +1,6 @@
 ---
 status: confirmed
+origin: note
 project: ai-lab-sleep-project
 made: 2026-11-11
 settled: 2026-11-11
