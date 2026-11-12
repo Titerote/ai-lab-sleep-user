@@ -29,3 +29,9 @@
 - MEMORY.md rewritten: added burr/beans notes and grinder wiki to map; descaler rule mirrored to noter.
 
 - Promote 2026-11-12: new proposal proposals/ai-lab-sleep-project/rules/descaler-product-citric2.md; shot-counting and beans rules mirrored into agent-memory/_user/MEMORY.md.
+
+## 2026-11-12 settle (second pass)
+- New session since last pass: d1e73852 (probe-only, no main.jsonl); nothing to settle. No outbox.
+- Moves: descaler-product -> _main/.../notes/; noter/feedback_shot_counting -> _user/notes/ (user convention). Stubs left. Wiki-link issue ticked.
+- 150-vs-300 water.md issue already ticked; no new evidence.
+- Counts settled by origin: note 0 / transcript 0 / filed 0.

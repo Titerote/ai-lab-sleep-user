@@ -10,3 +10,6 @@
 
 ## 2026-11-12 promote
 - MEMORY.md rewritten: added burr/beans notes and grinder wiki to map; descaler rule mirrored to noter.
+
+## 2026-11-12 settle (second pass)
+- feedback_shot_counting moved to _user/notes/ (about the person's convention); stub left. Not re-settled.
