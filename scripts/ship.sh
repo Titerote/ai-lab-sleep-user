@@ -5,10 +5,11 @@
 # Why the project repo: a cloud VM can push only to repos attached to the
 # session, and attaching several repos disables the repo's hooks.
 #
-# Also pushes agent-memory/ of the user clone straight to its main when a unit
-# of work ends (SubagentStop, SessionEnd, SessionStart catch-up). That push
-# only succeeds where the user repo is writable (the Mac); in the cloud auto
-# memory is off anyway, so it is a harmless no-op there.
+# Also ships agent-memory/ of the user clone when a unit of work ends
+# (SubagentStop, SessionEnd, SessionStart catch-up): on the Mac straight to
+# the user repo's main; in the cloud, where only the project repo is
+# pushable, as a memory-outbox/ on the transcripts branch that the next
+# settle phase applies into the user repo.
 #
 # Reads the hook input on stdin. Idempotent; per-turn events push with a time
 # debounce, terminal events flush.
@@ -104,11 +105,28 @@ PY
 fi
 
 # Memory: agent-memory/ of the user clone, only at the end of a unit of work.
+# Where the user repo is writable (the Mac) it is committed and pushed below.
+# Where it is not (cloud VMs push only to the attached project repo), the
+# session's memory writes travel as an outbox on the transcripts branch:
+# memory-outbox/<path under agent-memory/>, applied into the user repo by the
+# next settle phase. The user clone is pulled fresh at SessionStart, so its
+# working-tree changes are exactly this VM's writes.
 U="$SLEEP_HOME/user"
 case "$event" in SubagentStop|SessionEnd|SessionStart) ship_mem=1;; *) ship_mem=0;; esac
 if [ "$ship_mem" = 1 ] && [ -d "$U/.git" ]; then
-  git -C "$U" add -A agent-memory >/dev/null 2>&1
-  git -C "$U" diff --cached --quiet || { G "$U" commit -q -m "memory: $slug $sid ($event)" && changed=1; }
+  if [ "${CLAUDE_CODE_REMOTE:-}" = "true" ]; then
+    git -C "$U" status --porcelain -uall -- agent-memory 2>/dev/null | while read -r st p; do
+      case "$st" in D) continue;; esac           # deletions are not carried; settle sees them in the transcript
+      [ -f "$U/$p" ] || continue
+      mkdir -p "$dest/memory-outbox/$(dirname "$p")"
+      cp "$U/$p" "$dest/memory-outbox/$p"
+    done
+    git -C "$T" add -A "$sid/memory-outbox" >/dev/null 2>&1
+    git -C "$T" diff --cached --quiet || { G "$T" commit -q -m "ship: $slug $sid memory outbox ($event)" && changed=1; }
+  else
+    git -C "$U" add -A agent-memory >/dev/null 2>&1
+    git -C "$U" diff --cached --quiet || { G "$U" commit -q -m "memory: $slug $sid ($event)" && changed=1; }
+  fi
 fi
 
 ahead() { # <repo> <branch> → commits not on origin/<branch> (all, if the remote branch is unknown)
@@ -143,8 +161,8 @@ push_branch() { # <repo> <branch> → 0 on success
 
 ok=1
 [ "$(ahead "$T" "$BRANCH")" = 0 ] || { push_branch "$T" "$BRANCH" && log "$slug/$sid $event: pushed transcripts → $BRANCH" || { ok=0; log "$slug/$sid $event: transcripts push failed (left committed)"; }; }
-if [ -d "$U/.git" ] && [ "$(ahead "$U" main)" != 0 ]; then
-  push_branch "$U" main && log "$slug/$sid $event: pushed memory" || log "$slug/$sid $event: memory push failed (left committed; expected in the cloud)"
+if [ "${CLAUDE_CODE_REMOTE:-}" != "true" ] && [ -d "$U/.git" ] && [ "$(ahead "$U" main)" != 0 ]; then
+  push_branch "$U" main && log "$slug/$sid $event: pushed memory" || log "$slug/$sid $event: memory push failed (left committed)"
 fi
 [ $ok = 1 ] && echo "$now" >"$stamp"
 exit 0
