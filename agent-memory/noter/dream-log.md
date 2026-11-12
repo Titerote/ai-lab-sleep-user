@@ -4,3 +4,6 @@
 
 ## 2026-11-11 promote
 - MEMORY.md: promoted shot-counting and 150 cadence rules; linked project wiki.
+
+## 2026-11-12 settle
+- Set `origin: note` on `feedback_shot_counting.md` (status unchanged, confirmed). Sessions 5764ef00 and 9db72d39 had noter apply it correctly. Settled by origin: note 0 / transcript 0 / filed 0.
