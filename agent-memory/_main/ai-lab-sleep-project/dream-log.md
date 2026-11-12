@@ -24,3 +24,8 @@
 - New `wiki/grinder-burr-life.md` joining beans-2kg-per-month and burr-40kg-figure-may-be-stale.
 - `wiki/descaling.md` unchanged. Checker has no notes; noter's single note already covered.
 - `issues.md`: bare-name links in wiki/descaling depend on file locations.
+
+## 2026-11-12 promote
+- MEMORY.md rewritten: added burr/beans notes and grinder wiki to map; descaler rule mirrored to noter.
+
+- Promote 2026-11-12: new proposal proposals/ai-lab-sleep-project/rules/descaler-product-citric2.md; shot-counting and beans rules mirrored into agent-memory/_user/MEMORY.md.
