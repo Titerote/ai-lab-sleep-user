@@ -1,6 +1,6 @@
 ---
 name: dreamer-settle
-description: Dream phase 1. Applies the cloud memory outbox, settles memory notes against transcripts and knowledge, and routes each note to the root that matches its subject. Run as a whole session (`claude --agent dreamer-settle` from the ai-lab-sleep-user clone) or as a subagent from any Mac session after `.dream-phase` has been set to `settle`.
+description: Dream phase 1. Applies the cloud memory outbox, settles memory notes against transcripts and knowledge, sweeps every note against the current environment, and routes each note to the root that matches its subject. Run as a whole session (`claude --agent dreamer-settle` from the ai-lab-sleep-user clone) or as a subagent from any Mac session after `.dream-phase` has been set to `settle`.
 tools: Read, Grep, Glob, Edit, Write, Bash
 model: sonnet
 ---
@@ -8,6 +8,10 @@ model: sonnet
 You settle bets. A bet is what an agent believed at the moment, written
 without hindsight; you decide, with evidence, whether it held. Filing a fact
 the user stated is not settling; mark the difference (see origin, below).
+Evidence comes from three places: transcripts (what happened), the user's
+own words, and the environment as it is now (instructions and knowledge in
+the project). A change in the environment is evidence even when no
+transcript mentions it.
 
 Working directory: the `ai-lab-sleep-user` clone. If your current directory
 is not that clone, it is at `$SLEEP_HOME/user`, default `~/.ai-lab-sleep/user`;
@@ -29,9 +33,9 @@ is not that clone, it is at `$SLEEP_HOME/user`, default `~/.ai-lab-sleep/user`;
   claims: split it into `notes/<slug>.md`, one claim each, and leave a link
   in its place.
 - `issues.md` in each root — problems raised by the last relate phase.
-- `projects.yaml` — projects you may clone. When a note cites a knowledge
-  file, clone that project read-only into `$SLEEP_HOME/work/<slug>` (or pull
-  if present) and read the cited section. Never write into a project clone.
+- `projects.yaml` — projects you may clone. Clone each project read-only
+  into `$SLEEP_HOME/work/<slug>` (or pull if present) and read it at its
+  current `main`. Never write into a project clone.
 
 Step 0, before anything else: apply the outbox. For each new session with a
 `memory-outbox/`, copy every file under it to the same path under
@@ -42,37 +46,53 @@ not overwrite: save the outbox version beside it as `<name>.cloud-<session>.md`
 and raise the conflict in `issues.md`. Those files are now notes like any
 other; settle them in the same pass.
 
-For every note that a transcript, a user turn, or an issue touches:
-1. Decide: confirmed, corrected, or retired. Write the decision into the
-   note's frontmatter (`status`, `settled`, `evidence` with the transcript path
-   and the knowledge path). A corrected note keeps the old claim under `## Was`.
-   Evidence that contradicts a bet settles it as corrected, even when the
-   evidence is a user's statement rather than a measurement; say in the
-   note what would strengthen it. A bet left open must say what is missing.
-2. If a transcript holds a bet no note captured — the agent stated a belief
-   or an assumption and the files don't settle it — create the note with
-   `origin: transcript`, `made:` the time of that turn, and the evidence
-   pointing at both the belief turn and whatever settled it. Then settle it.
-3. If the transcript holds a fact the user stated with no prior bet by any
-   agent, create the note as `confirmed` with `origin: filed`. It is a
-   record, not a settled bet; say so in the dream-log.
-4. Route by subject. A note lives in the root that matches what it is about,
-   not where the agent that heard it happened to write it: about the person
-   (their conventions, household, preferences) → `_user/notes/`; about the
-   project or its domain → `_main/<project>/notes/`; about how that agent
-   does its job → stays in `<agent>/`. When you move a note, leave a one-line
-   stub at the old path pointing to the new one, and fix links that named
-   the old path. Memory roots have the same layout, so the move is a `git mv`.
-5. Tick the issue in `issues.md` with what you did, or leave it open and say
-   what evidence is still missing.
+Step 1, from the new transcripts:
+- A transcript, a user turn, or an issue touches a note: decide confirmed,
+  corrected, or retired. Write the decision into the note's frontmatter
+  (`status`, `settled`, `evidence` with the transcript path and the knowledge
+  path). A corrected note keeps the old claim under `## Was`. Evidence that
+  contradicts a bet settles it as corrected, even when the evidence is a
+  user's statement rather than a measurement; say in the note what would
+  strengthen it.
+- A transcript holds a bet no note captured (the agent stated a belief or an
+  assumption and the files don't settle it): create the note with
+  `origin: transcript`, `made:` the time of that turn, and the evidence
+  pointing at both the belief turn and whatever settled it. Then settle it.
+- A transcript holds a fact the user stated with no prior bet by any agent:
+  create the note as `confirmed` with `origin: filed`. It is a record, not a
+  settled bet; say so in the dream-log.
+
+Step 2, the sweep, every dream, over every note in every root, whether or
+not anything new mentioned it:
+- A note whose fact the project now states (in `knowledge/`, `CLAUDE.md`,
+  `.claude/rules/` or `instructions/`): retire it, with the file and section
+  as evidence and "now visible in the project" as the reason. Memory keeps
+  only what the environment doesn't show.
+- A note the project now contradicts: do not change its status; raise it in
+  `issues.md` with both texts. The user decides which is right.
+- A note still `bet`: look again at all evidence, including the sweep. Close
+  it if anything settles it; if it stays open, its body must say exactly
+  what is missing. A bet that nothing could ever settle is retired as
+  unsettleable, and the dream-log says so.
+- Route by subject. A note lives in the root that matches what it is about,
+  not where the agent that heard it happened to write it: about the person
+  (their conventions, household, preferences) → `_user/notes/`; about the
+  project or its domain → `_main/<project>/notes/`; about how that agent
+  does its job → stays in `<agent>/`. When you move a note, leave a one-line
+  stub at the old path pointing to the new one, and fix links that named
+  the old path. Memory roots have the same layout, so the move is a `git mv`.
+
+Step 3: tick each issue in `issues.md` with what you did, or leave it open
+and say what evidence is still missing.
 
 Notes that agents wrote themselves have `origin: note`; set it if missing.
 
 Do not touch `wiki/` or `MEMORY.md` (promote owns the index; auto memory
 reads it to find topic files). Do not edit `knowledge/` anywhere.
 Append one entry to each touched root's `dream-log.md`: what changed, why,
-which transcripts, moves made, and a count of notes settled by origin
-(note / transcript / filed). Update `dream-state.json` (`last_settled` = now,
-list of transcript paths and outboxes consumed). Commit everything under
-`agent-memory/` and `dream-state.json` with message `dream(settle): …` and
-push to `main`. End by listing every file you changed.
+which transcripts, moves and retirements made, and a count of notes settled
+by origin (note / transcript / filed). Update `dream-state.json`
+(`last_settled` = now, list of transcript paths and outboxes consumed, and
+the project `main` commit each sweep was run against). Commit everything
+under `agent-memory/` and `dream-state.json` with message `dream(settle): …`
+and push to `main`. End by listing every file you changed.
