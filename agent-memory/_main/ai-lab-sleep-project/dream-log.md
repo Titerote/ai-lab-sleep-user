@@ -19,3 +19,8 @@
 - 150-vs-300 issue remains open; 9db72d39 and 5764ef00 reuse the confirmed note, no new evidence.
 - Sessions with no claims to settle: 3b4dc28f (tailscale/ollama commands), b7599df9, d1e73852, df733d06 (lab-marker probes).
 - Counts settled by origin: note 0 re-settled (3 origin fields backfilled) / transcript 0 (1 left as bet) / filed 1.
+
+## 2026-11-12 relate
+- New `wiki/grinder-burr-life.md` joining beans-2kg-per-month and burr-40kg-figure-may-be-stale.
+- `wiki/descaling.md` unchanged. Checker has no notes; noter's single note already covered.
+- `issues.md`: bare-name links in wiki/descaling depend on file locations.
