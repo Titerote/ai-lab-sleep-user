@@ -14,6 +14,10 @@ the project). A change in the environment is evidence even when no
 transcript mentions it. Consistency counts: a user-stated rate or figure
 that agrees with a number a bet doubted is evidence against the bet.
 
+A dream has no "nothing to do". New transcripts may be absent; the sweep
+(step 2) and the dream-log entry (end) happen every time. A run that ends
+without a dream-log entry is a failed run.
+
 Working directory: the `ai-lab-sleep-user` clone. If your current directory
 is not that clone, it is at `$SLEEP_HOME/user`, default `~/.ai-lab-sleep/user`;
 `cd` there first and use absolute paths under it for every write. Read
@@ -47,7 +51,7 @@ not overwrite: save the outbox version beside it as `<name>.cloud-<session>.md`
 and raise the conflict in `issues.md`. Those files are now notes like any
 other; settle them in the same pass.
 
-Step 1, from the new transcripts:
+Step 1, from the new transcripts (skip only this step when there are none):
 - A transcript, a user turn, or an issue touches a note: decide confirmed,
   corrected, or retired. Write the decision into the note's frontmatter
   (`status`, `settled`, `evidence` with the transcript path and the knowledge
@@ -66,9 +70,10 @@ Step 1, from the new transcripts:
   found in any project's transcript goes to `_user/notes/`. A session in a
   project is never a reason to drop what the user said in it.
 
-Step 2, the sweep. Build a ledger: one line per note in every root,
-including notes created in step 1, and answer four questions for each.
-Nothing is skipped because nothing new mentioned it.
+Step 2, the sweep, every dream. Run `scripts/notes-ledger.sh` with Bash: it
+prints one line per note in every root, with root, status, origin and made
+already filled. Copy that table into your working notes and fill the empty
+columns for every line, answering four questions per note:
 1. Visible? Does the project now state this fact (in `knowledge/`,
    `CLAUDE.md`, `.claude/rules/` or `instructions/`)? Yes → retire, with the
    file and section as evidence and "now visible in the project" as the
@@ -86,9 +91,9 @@ Nothing is skipped because nothing new mentioned it.
    leave a one-line stub at the old path pointing to the new one, and fix
    links that named the old path. Memory roots have the same layout.
 
-The ledger goes into the dream-log as a table: note, visible, contradicted,
-bet, root, action taken. A note with four "no" answers and no action is a
-valid line; a note missing from the table is a failed sweep.
+The filled table goes into the dream-log. A note with four "no" answers and
+no action is a valid line; a line left unfilled, or a note missing from the
+table, is a failed sweep.
 
 Step 3: tick each issue in `issues.md` with what you did, or leave it open
 and say what evidence is still missing.
@@ -97,10 +102,11 @@ Notes that agents wrote themselves have `origin: note`; set it if missing.
 
 Do not touch `wiki/` or `MEMORY.md` (promote owns the index; auto memory
 reads it to find topic files). Do not edit `knowledge/` anywhere.
-Append one entry to each touched root's `dream-log.md`: what changed, why,
-which transcripts, the ledger, and a count of notes settled by origin
-(note / transcript / filed). Update `dream-state.json` (`last_settled` = now,
-list of transcript paths and outboxes consumed, and the project `main` commit
-each sweep was run against). Commit everything under `agent-memory/` and
-`dream-state.json` with message `dream(settle): …` and push to `main`. End
-by listing every file you changed.
+End, every run: append one entry to `agent-memory/_user/dream-log.md` (the
+run's summary: which transcripts, the filled ledger, counts by origin) and
+one to each other root's `dream-log.md` that you changed. Update
+`dream-state.json` (`last_settled` = now, list of transcript paths and
+outboxes consumed, and the project `main` commit each sweep was run
+against). Commit everything under `agent-memory/` and `dream-state.json`
+with message `dream(settle): …` and push to `main`. End by listing every
+file you changed.
