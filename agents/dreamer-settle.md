@@ -11,7 +11,8 @@ the user stated is not settling; mark the difference (see origin, below).
 Evidence comes from three places: transcripts (what happened), the user's
 own words, and the environment as it is now (instructions and knowledge in
 the project). A change in the environment is evidence even when no
-transcript mentions it.
+transcript mentions it. Consistency counts: a user-stated rate or figure
+that agrees with a number a bet doubted is evidence against the bet.
 
 Working directory: the `ai-lab-sleep-user` clone. If your current directory
 is not that clone, it is at `$SLEEP_HOME/user`, default `~/.ai-lab-sleep/user`;
@@ -60,27 +61,34 @@ Step 1, from the new transcripts:
   pointing at both the belief turn and whatever settled it. Then settle it.
 - A transcript holds a fact the user stated with no prior bet by any agent:
   create the note as `confirmed` with `origin: filed`. It is a record, not a
-  settled bet; say so in the dream-log.
+  settled bet; say so in the dream-log. Where it goes is decided by its
+  subject, not by the project the session ran in: a fact about the person
+  found in any project's transcript goes to `_user/notes/`. A session in a
+  project is never a reason to drop what the user said in it.
 
-Step 2, the sweep, every dream, over every note in every root, whether or
-not anything new mentioned it:
-- A note whose fact the project now states (in `knowledge/`, `CLAUDE.md`,
-  `.claude/rules/` or `instructions/`): retire it, with the file and section
-  as evidence and "now visible in the project" as the reason. Memory keeps
-  only what the environment doesn't show.
-- A note the project now contradicts: do not change its status; raise it in
-  `issues.md` with both texts. The user decides which is right.
-- A note still `bet`: look again at all evidence, including the sweep. Close
-  it if anything settles it; if it stays open, its body must say exactly
-  what is missing. A bet that nothing could ever settle is retired as
-  unsettleable, and the dream-log says so.
-- Route by subject. A note lives in the root that matches what it is about,
-  not where the agent that heard it happened to write it: about the person
-  (their conventions, household, preferences) → `_user/notes/`; about the
-  project or its domain → `_main/<project>/notes/`; about how that agent
-  does its job → stays in `<agent>/`. When you move a note, leave a one-line
-  stub at the old path pointing to the new one, and fix links that named
-  the old path. Memory roots have the same layout, so the move is a `git mv`.
+Step 2, the sweep. Build a ledger: one line per note in every root,
+including notes created in step 1, and answer four questions for each.
+Nothing is skipped because nothing new mentioned it.
+1. Visible? Does the project now state this fact (in `knowledge/`,
+   `CLAUDE.md`, `.claude/rules/` or `instructions/`)? Yes → retire, with the
+   file and section as evidence and "now visible in the project" as the
+   reason. Memory keeps only what the environment doesn't show.
+2. Contradicted? Does the project now say otherwise? Yes → keep the status;
+   raise it in `issues.md` with both texts. The user decides which is right.
+3. Still a bet? Look again at all evidence, including the sweep and
+   consistency with user-stated figures. Close it if anything settles it;
+   if it stays open, its body must say exactly what is missing. A bet that
+   nothing could ever settle is retired as unsettleable.
+4. Right root? A note lives where its subject is, not where the agent that
+   heard it wrote it: about the person (conventions, household, preferences)
+   → `_user/notes/`; about the project or its domain → `_main/<project>/notes/`;
+   about how that agent does its job → `<agent>/`. Wrong root → `git mv` it,
+   leave a one-line stub at the old path pointing to the new one, and fix
+   links that named the old path. Memory roots have the same layout.
+
+The ledger goes into the dream-log as a table: note, visible, contradicted,
+bet, root, action taken. A note with four "no" answers and no action is a
+valid line; a note missing from the table is a failed sweep.
 
 Step 3: tick each issue in `issues.md` with what you did, or leave it open
 and say what evidence is still missing.
@@ -90,9 +98,9 @@ Notes that agents wrote themselves have `origin: note`; set it if missing.
 Do not touch `wiki/` or `MEMORY.md` (promote owns the index; auto memory
 reads it to find topic files). Do not edit `knowledge/` anywhere.
 Append one entry to each touched root's `dream-log.md`: what changed, why,
-which transcripts, moves and retirements made, and a count of notes settled
-by origin (note / transcript / filed). Update `dream-state.json`
-(`last_settled` = now, list of transcript paths and outboxes consumed, and
-the project `main` commit each sweep was run against). Commit everything
-under `agent-memory/` and `dream-state.json` with message `dream(settle): …`
-and push to `main`. End by listing every file you changed.
+which transcripts, the ledger, and a count of notes settled by origin
+(note / transcript / filed). Update `dream-state.json` (`last_settled` = now,
+list of transcript paths and outboxes consumed, and the project `main` commit
+each sweep was run against). Commit everything under `agent-memory/` and
+`dream-state.json` with message `dream(settle): …` and push to `main`. End
+by listing every file you changed.
