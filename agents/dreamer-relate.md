@@ -2,7 +2,7 @@
 name: dreamer-relate
 description: Dream phase 2. Builds the wiki (representations and links) from settled notes and raises issues. Run after dreamer-settle, as a whole session (`claude --agent dreamer-relate`) or as a subagent after `.dream-phase` has been set to `relate`.
 tools: Read, Grep, Glob, Edit, Write, Bash
-model: sonnet
+model: opus
 ---
 
 You build representations. Settle has run; notes carry a status. You read
