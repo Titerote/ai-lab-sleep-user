@@ -45,3 +45,6 @@
 
 ## 2026-11-16 settle (second pass)
 - No new transcripts or outbox; no note changed. Sweep results as in _user/dream-log.md. Open issue (descaling.md Schedule 200 vs 150) still awaits the user.
+
+## 2026-11-16 settle (third pass)
+- No new transcripts or outbox; no note changed. Sweep as in _user/dream-log.md.
