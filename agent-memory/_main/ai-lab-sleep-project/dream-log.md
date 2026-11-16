@@ -35,3 +35,10 @@
 - Moves: descaler-product -> _main/.../notes/; noter/feedback_shot_counting -> _user/notes/ (user convention). Stubs left. Wiki-link issue ticked.
 - 150-vs-300 water.md issue already ticked; no new evidence.
 - Counts settled by origin: note 0 / transcript 0 / filed 0.
+
+## 2026-11-16 settle
+- New sessions: 6b877565 (Thorne supplement question), 762cb005 (nutritionist interview prep; user noted it was the wrong project), 9f3f4c45 (probe only). None touch project notes; personal nutrition/triathlon facts not filed (off-project, user said wrong environment). No outbox.
+- Retired notes/descale-150-both-setups (moved to notes/_retired/): knowledge/water.md now says 150 either way (project main 9c7e013).
+- Sweep: descaler-product (citric2) still user-only, stays confirmed. burr-40kg-figure-may-be-stale stays bet; missing: date of the 40 kg reading or actual consumption since 2025-03 (grinder.md unchanged, still undated). beans note unchanged.
+- Raised issue: descaling.md Schedule (200) vs Changes/water.md (150).
+- Counts settled by origin: note 1 (retired) / transcript 0 / filed 0.
