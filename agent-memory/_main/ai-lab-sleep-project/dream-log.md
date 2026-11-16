@@ -42,3 +42,6 @@
 - Sweep: descaler-product (citric2) still user-only, stays confirmed. burr-40kg-figure-may-be-stale stays bet; missing: date of the 40 kg reading or actual consumption since 2025-03 (grinder.md unchanged, still undated). beans note unchanged.
 - Raised issue: descaling.md Schedule (200) vs Changes/water.md (150).
 - Counts settled by origin: note 1 (retired) / transcript 0 / filed 0.
+
+## 2026-11-16 settle (second pass)
+- No new transcripts or outbox; no note changed. Sweep results as in _user/dream-log.md. Open issue (descaling.md Schedule 200 vs 150) still awaits the user.
