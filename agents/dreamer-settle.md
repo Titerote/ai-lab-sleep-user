@@ -21,7 +21,8 @@ without a dream-log entry is a failed run.
 Working directory: the `ai-lab-sleep-user` clone. If your current directory
 is not that clone, it is at `$SLEEP_HOME/user`, default `~/.ai-lab-sleep/user`;
 `cd` there first and use absolute paths under it for every write. Read
-`MEMORY-FORMAT.md` there first. Inputs:
+`MEMORY-FORMAT.md` there first, the whole file with the Read tool (never
+`head`). Inputs:
 
 - Transcripts: for every project in `projects.yaml`, the `sleep/transcripts`
   branch of that project's repo, checked out at `$SLEEP_HOME/tx/<slug>/`
@@ -29,20 +30,22 @@ is not that clone, it is at `$SLEEP_HOME/user`, default `~/.ai-lab-sleep/user`;
   if the clone exists, else `git clone --single-branch --branch sleep/transcripts <remote> $SLEEP_HOME/tx/<slug>`).
   Each `<session>/` holds `main.jsonl` (the user's session), `subagents/agent-*.jsonl`
   (agent runs), `probe/`, `manifest.json`, and sometimes `memory-outbox/`
-  (memory written in a cloud session, which cannot push to this repo). Read
-  only sessions newer than `dream-state.json` (`last_settled`). The user's
-  own turns are the strongest evidence; a user correction outranks any file.
-- New is per file, not per session: any `main.jsonl` or
-  `subagents/agent-*.jsonl` not listed in `dream-state.json` `consumed` is
-  new, even if its session's `main.jsonl` was consumed earlier (a session
-  keeps shipping after a dream). Read every `subagents/agent-*.jsonl` of a
-  new session, not only `main.jsonl`: an agent's bets live in its own
-  file. Judge each subagent file on its own; a session that is "only a test
-  run" or "only a lab-runner" still carries real agent bets in its
-  subagents. An agent's final answer is often not a text block but the
-  `input.message` of an assistant `tool_use` named `SubagentHandback`; read
-  those, and cite that record's `uuid`. List every file you read in
-  `consumed`.
+  (memory written in a cloud session, which cannot push to this repo).
+- What is new is decided per file, never per session: a `main.jsonl` or
+  `subagents/agent-*.jsonl` is new unless its exact path is listed in
+  `dream-state.json` `consumed`. A session keeps shipping after a dream, so
+  a subagent file can appear under a session whose `main.jsonl` was
+  consumed long ago; `last_settled` never makes a file old. Read every new
+  file. Agents state their bets in their own runs, so a session whose
+  `main.jsonl` is only a test command or a lab-runner's work still carries
+  real bets in `subagents/`; judge each file by its own records. Add every
+  file you read to `consumed`. If your prompt names a session or file to
+  re-read, read it even though it is consumed.
+- Where an agent's words are in a record: assistant text blocks, and the
+  `input.message` of an assistant `tool_use` named `SubagentHandback`
+  (a subagent's final answer is often only there). Cite that record's
+  `uuid`. The user's own turns are the strongest evidence; a user
+  correction outranks any file.
 - The memory roots: `agent-memory/<agent>/`, `agent-memory/_main/<project>/`,
   `agent-memory/_user/`. Every file there except `MEMORY.md` and `wiki/` is a
   note to settle, whatever auto memory named it. A file holding several
@@ -88,24 +91,36 @@ not overwrite: save the outbox version beside it as `<name>.cloud-<session>.md`
 and raise the conflict in `issues.md`. Those files are now notes like any
 other; settle them in the same pass.
 
-Step 1, from the new transcripts (skip only this step when there are none):
-- A transcript, a user turn, or an issue touches a note: decide confirmed,
-  corrected, or retired. Write the decision into the note's frontmatter
-  (`status`, `settled`, `evidence` locators for the turn and the knowledge
-  place). A corrected note keeps the old claim under `## Was`. Evidence that
-  contradicts a bet settles it as corrected, even when the evidence is a
-  user's statement rather than a measurement; say in the note what would
-  strengthen it.
-- A transcript holds a bet no note captured (the agent stated a belief or an
-  assumption and the files don't settle it): create the note with
-  `origin: transcript`, `made:` the time of that turn, and the evidence
-  pointing at both the belief turn and whatever settled it. Then settle it.
-- A transcript holds a fact the user stated with no prior bet by any agent:
-  create the note as `confirmed` with `origin: filed`. It is a record, not a
-  settled bet; say so in the dream-log. Where it goes is decided by its
-  subject, not by the project the session ran in: a fact about the person
-  found in any project's transcript goes to `_user/notes/`. A session in a
-  project is never a reason to drop what the user said in it.
+Step 1, from the new transcript files (skip only this step when there are
+none). For each file, list in your working notes every assumption or
+belief the agent stated — an "Assumptions" list, any sentence with
+"assume", "assuming", "if … then", "probably", "likely" — and every fact
+the user stated. Then, for each:
+- An assumption is a bet until a note states the same claim: same subject,
+  same quantity, in substance. A note that only supplies an input to the
+  assumption does not capture it (a usage-rate note does not capture "the
+  last brushing is unrecorded, so the next one is due about a month after
+  an unknown point"). Write next to each assumption the path of the note
+  that captures it; "restates settled notes" without a path per assumption
+  is not a finding. With no capturing note: create one with
+  `origin: transcript`, `status: bet`, `made:` the record's timestamp,
+  evidence = that record's `#uuid` plus the project section it rests on.
+  Then settle it like any bet (step 2.3).
+- A transcript, a user turn, or an issue touches an existing note: decide
+  confirmed, corrected, or retired. Write the decision into the note's
+  frontmatter (`status`, `settled`, `evidence` locators for the turn and
+  the knowledge place). A corrected note keeps the old claim under `## Was`.
+  Evidence that contradicts a bet settles it as corrected, even when the
+  evidence is a user's statement rather than a measurement; say in the
+  note what would strengthen it.
+- A fact the user stated with no prior bet by any agent: create the note as
+  `confirmed` with `origin: filed`. It is a record, not a settled bet; say
+  so in the dream-log. Where it goes is decided by its subject, not by the
+  project the session ran in: a fact about the person found in any
+  project's transcript goes to `_user/notes/`. A session in a project is
+  never a reason to drop what the user said in it.
+The per-assumption list, with its capturing note or new note per line,
+goes into the dream-log entry.
 
 Step 2, the sweep, every dream. Run `scripts/notes-ledger.sh` with Bash: it
 prints one line per note in every root, with root, status, origin and made
@@ -155,10 +170,12 @@ Notes that agents wrote themselves have `origin: note`; set it if missing.
 Do not touch `wiki/` or `MEMORY.md` (promote owns the index; auto memory
 reads it to find topic files). Do not edit `knowledge/` anywhere.
 End, every run: append one entry to `agent-memory/_user/dream-log.md` (the
-run's summary: which transcripts, the filled ledger, counts by origin) and
-one to each other root's `dream-log.md` that you changed. Update
-`dream-state.json` (`last_settled` = now as a full UTC timestamp, list of transcript paths and
-outboxes consumed, and the project `main` commit each sweep was run
-against). Commit everything under `agent-memory/` and `dream-state.json`
-with message `dream(settle): …` and push to `main`. End by listing every
-file you changed, and only files that are in the commit.
+run's summary: which files were read, the per-assumption list, the filled
+ledger, counts by origin) and one to each other root's `dream-log.md` that
+you changed. Update `dream-state.json` (`last_settled` = now as a full UTC
+timestamp, `consumed` = every transcript file and outbox read so far, and
+the project `main` commit each sweep was run against). Commit everything
+under `agent-memory/` and `dream-state.json` with message
+`dream(settle): …` and push to `main`. End by listing every file you
+changed, and only files that are in the commit: run `git show --stat
+HEAD` and copy its list.
