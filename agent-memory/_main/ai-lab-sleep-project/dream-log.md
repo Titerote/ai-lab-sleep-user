@@ -79,3 +79,9 @@
 
 ## 2026-11-17 settle (pass 4)
 No new transcripts bearing on this root. burr-brush-due-unknown stays an open bet; dossier regenerated (issue line already open).
+
+## 2026-11-17 dream(relate) — after settle pass 4
+- wiki/descaling: product line now also covers storage, linking the new _user/notes/descaler-storage-left-drawer (same subject as notes/descaler-product, across roots).
+- Project origin/main 8dc74fd: descaling.md "Schedule" still says 200. The 150 edit exists only as an uncommitted working-tree change in the project checkout; content ignored, page keeps saying it is not on main.
+- issues.md: raised descaler-product's prose section name ("Steps" vs "Procedure"). No note-vs-note conflicts; burr-40kg slug issue still open.
+- All [[...]] in wiki/ and notes resolve (only closed issue lines carry historical bare names). No new pages: _user, noter, checker roots have no other subject with two notes beyond what existing pages cover; gasket bet is single.
