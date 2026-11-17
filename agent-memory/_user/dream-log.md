@@ -133,3 +133,6 @@
   - noter/notes/group-head-gasket-yearly: no / no / open (dossier regenerated) / noter / none
   - noter/notes/descaler-storage-left-drawer: stub
 - Counts of live notes by origin: note 5, transcript 2, filed 1 (created this pass: note 1). No issues changed; no user ruling.
+
+## 2026-11-17 dream(promote) — third pass
+- MEMORY.md: added confirmed descaler-drawer rule (source _user), mirrored to noter and main. Fixed "Steps" -> "Procedure" in the citric2 knowledge proposal.

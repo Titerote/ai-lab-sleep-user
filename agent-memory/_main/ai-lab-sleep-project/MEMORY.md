@@ -8,6 +8,7 @@ Purpose: what a vanilla session has learned in this project. Auto memory owns th
 - Descaler product is "citric2" sachets, one per descale (knowledge says only "citric"). Cite the user; never edit `knowledge/`. [note](notes/descaler-product.md)
 - Count shots from the last descale, not the counter reset. [note](../_user/notes/feedback_shot_counting.md)
 - Cadence is 150 shots; water.md, the "Changes" entry and (user decision 2026-11-17, uncommitted working-tree edit) descaling.md "Schedule" now agree. Schedule still counts by the machine counter, so apply the last-descale baseline. [retired note](notes/_retired/descale-150-both-setups.md)
+- Descaler sachets are kept in the left kitchen drawer (user-stated; not in knowledge/). [note](../_user/notes/descaler-storage-left-drawer.md)
 - Burr "about 40 kg" in grinder.md is current (user: "treat the file as current"). [note](notes/burr-40kg-figure-may-be-stale.md)
 
 ## Topic files

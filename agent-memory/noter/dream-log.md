@@ -25,3 +25,6 @@
 
 ## 2026-11-17 dream(settle) — outbox applied
 - noter/MEMORY.md copied from cloud outbox 3da63ac1; descaler-storage-left-drawer note moved to _user/notes (stub left); gasket dossier regenerated.
+
+## 2026-11-17 dream(promote) — third pass
+- MEMORY.md: added confirmed descaler-drawer rule (source _user), mirrored to noter and main.

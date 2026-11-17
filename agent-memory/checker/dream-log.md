@@ -9,3 +9,6 @@
 
 ## 2026-11-17 dream(promote) — second pass
 - MEMORY.md refreshed: mirror unchanged.
+
+## 2026-11-17 dream(promote) — third pass
+- MEMORY.md: unchanged (drawer rule not relevant to checking notes).

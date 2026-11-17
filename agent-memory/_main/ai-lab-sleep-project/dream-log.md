@@ -85,3 +85,6 @@
 - issues.md: raised descaler-product body naming section "Steps" (knowledge heading is "Procedure"). Burr-slug issue still open.
 - No new note-vs-note conflicts (two-doubles vs 2 kg already in _user/issues.md). Gasket bet: one note, no page. All [[...]] in wiki/ and in notes resolve.
 - Project read at origin/main 8dc74fd (Schedule still 200 there). The user's project checkout has an uncommitted edit to knowledge/descaling.md; content ignored, wiki keeps saying the Schedule change is not on main.
+
+## 2026-11-17 dream(promote) — third pass
+- MEMORY.md: added confirmed descaler-drawer rule (source _user), mirrored to noter and main.

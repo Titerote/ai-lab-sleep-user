@@ -9,6 +9,7 @@ matter into each agent's index with a link back.
 ## Rules that matter now
 - The user counts shots from the last descale, not the counter reset. [note](notes/feedback_shot_counting.md)
 - The household uses about 2 kg of beans a month. [note](notes/beans-2kg-per-month.md)
+- Descaler sachets are kept in the left kitchen drawer (user-stated; not in knowledge/). [note](notes/descaler-storage-left-drawer.md)
 
 ## Map
 - [wiki/coffee-consumption.md](wiki/coffee-consumption.md) — beans rate (2 kg/month) vs the open two-doubles-a-day bet ([note](notes/two-double-shots-a-day.md))
