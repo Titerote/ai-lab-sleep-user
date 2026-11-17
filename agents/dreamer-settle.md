@@ -61,6 +61,12 @@ is a locator, optionally followed by a YAML comment:
 - links between notes: `[[notes/<slug>]]` inside one root,
   `[[_user/notes/<slug>]]`, `[[_main/<project>/notes/<slug>]]` or
   `[[<agent>/notes/<slug>]]` across roots.
+- a ruling the user gives you directly, in this dream session (an answer
+  to an issue, "treat the file as current", "150 is right"): your own
+  session is on no transcripts branch, so first append one line to
+  `agent-memory/_user/decisions.md` — `- <date> <note or issue path>:
+  "<the user's words>"` — and cite it as `_user/decisions.md:<line>`.
+  Never write "no locator exists": the decisions log is the locator.
 
 Step 0, before anything else: apply the outbox. For each new session with a
 `memory-outbox/`, copy every file under it to the same path under
@@ -129,7 +135,9 @@ no action is a valid line; a line left unfilled, or a note missing from the
 table, is a failed sweep.
 
 Step 3: tick each issue in `issues.md` with what you did, or leave it open
-and say what evidence is still missing.
+and say what evidence is still missing. An issue the user answered in this
+session is settled through the decisions log (above) and ticked with that
+locator.
 
 Notes that agents wrote themselves have `origin: note`; set it if missing.
 

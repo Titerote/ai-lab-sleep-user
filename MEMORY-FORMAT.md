@@ -128,3 +128,8 @@ out as a proposal under the project's `.claude/rules/` (PR), not here.
   note's dossier.
 - `dream-log.md` — one entry per dream per phase: what changed and why, with
   the transcript(s) that drove it.
+- `_user/decisions.md` — rulings the user gave a dreamer directly, one line
+  each: `- <date> <note or issue path>: "<the user's words>"`. Dream
+  sessions are on no transcripts branch, so this file is the locator for
+  those statements (`_user/decisions.md:<line>`); the dossier reads it like
+  any file.
