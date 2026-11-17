@@ -21,6 +21,8 @@ Evidence item grammar (one per list entry, YAML comment allowed after it):
   knowledge/<file>.md:<line>[-<line>]               line history
   knowledge/<file>.md                               file history
   (any path under the project repo works, not only knowledge/)
+  _user/decisions.md:<line>                         a line of a memory file in
+                                                   this repo (working tree + HEAD history)
 
 Links: [[notes/x]] is relative to the note's own root; [[_user/notes/x]],
 [[_main/<project>/notes/x]] and [[<agent>/notes/x]] are relative to
@@ -232,6 +234,45 @@ def line_history(pdir, path, frag):
     return (label, log.stdout.strip(), current), events, None
 
 
+def memory_history(path, frag):
+    """A path inside agent-memory/ of the user repo (e.g. _user/decisions.md:3):
+    current lines from the working tree, history from HEAD."""
+    full = os.path.join(USER, "agent-memory", path)
+    if not os.path.isfile(full):
+        return None, [], f"{path}: not found under agent-memory/"
+    with open(full, encoding="utf-8") as f:
+        lines = f.read().splitlines()
+    rng, label = None, path
+    if frag is not None:
+        if re.match(r"^\d+(-\d+)?$", frag):
+            a, _, b = frag.partition("-")
+            rng = (int(a), int(b or a))
+            label = f"{path}:{frag}"
+        else:
+            rng = section_range(lines, frag)
+            label = f"{path}#{frag}"
+            if rng is None:
+                return None, [], f"{label}: heading not found"
+    rel = os.path.join("agent-memory", path)
+    args = ["log", "--date=short", "--format=@@ %h %ad %an: %s"]
+    if rng:
+        args += [f"-L{rng[0]},{rng[1]}:{rel}", "HEAD"]
+    else:
+        args += ["HEAD", "--", rel]
+    log = git(USER, *args)
+    events = []
+    for m in re.finditer(r"^@@ ([0-9a-f]+) (\d{4}-\d{2}-\d{2}) (.*)$", log.stdout, re.M):
+        events.append((parse_ts(m.group(2)), f"`{path}` changed in {m.group(1)}: {m.group(3)}"))
+    current = "\n".join(lines[rng[0] - 1:rng[1]]) if rng else None
+    if rng and not events:
+        for ln in lines[rng[0] - 1:rng[1]]:
+            d = re.match(r"^-\s+(\d{4}-\d{2}-\d{2})\s", ln)
+            if d:
+                events.append((parse_ts(d.group(1)), f"ruling in `{label}`: {ln[:100]}"))
+    body = log.stdout.strip() if log.returncode == 0 else ""
+    return (label, body or "(not yet committed)", current), events, None
+
+
 def main():
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     write = "--write" in sys.argv
@@ -286,6 +327,13 @@ def main():
             sid = parts[2][:8]
             timeline.append((ts, f"turn in `{tslug}/{sid}…/{parts[-1]}` ({rec.get('type')}): {record_text(rec)[:90].replace(chr(10), ' ')}"))
             extracts.append((path, rec, parent, how))
+        elif path.startswith("_") or os.path.isfile(os.path.join(USER, "agent-memory", path)):
+            hist, events, err = memory_history(path, frag)
+            if err:
+                problems.append(err)
+                continue
+            histories.append(hist)
+            timeline.extend(events)
         else:
             if not slug:
                 problems.append(f"{path}: note has no project, cannot read history")
@@ -356,7 +404,7 @@ def main():
             out.append(f"> _{rec.get('type')} · {rec.get('timestamp', '')} · {rec.get('uuid', '')}_  \n> "
                        + record_text(rec).replace("\n", "\n> ") + "\n")
     if histories:
-        out.append("### Line history (origin/main)\n")
+        out.append("### Line history\n")
         for label, log, current in histories:
             out.append(f"**{label}**")
             if current is not None:
