@@ -79,41 +79,6 @@ A transcript entry without `#<uuid>` is resolved by the first `"quoted phrase"`
 in its comment (legacy notes); new entries always carry the uuid. A project
 path without section or line is not evidence.
 
-### Reading transcripts (settle)
-
-This section binds settle even where its own prompt is older.
-
-- A file is new unless its exact path is in `dream-state.json` `consumed`.
-  That holds per file, not per session: a session keeps shipping after a
-  dream, so `subagents/agent-*.jsonl` files can appear in a session whose
-  `main.jsonl` was consumed long ago. `last_settled` alone never makes a
-  file old.
-- Read every new `subagents/agent-*.jsonl`, not only `main.jsonl`. Agents
-  state their bets in their own runs. A session that is "only a test run"
-  or "only a lab-runner" still carries real agent bets in its subagents;
-  judge each subagent file by its own records.
-- An agent's final answer is often not an assistant text block but the
-  `input.message` of an assistant `tool_use` named `SubagentHandback`. Read
-  it, and cite that record's `uuid` as the belief turn
-  (`transcripts/<slug>/<session>/subagents/agent-<id>.jsonl#<uuid>`).
-- Add every file you read to `consumed`, subagent files included.
-- Rules changed → re-read. A file consumed before the last commit that
-  touched this section (`git log -1 --format=%cI -- MEMORY-FORMAT.md`) is
-  read again if any assistant record in it states an assumption
-  (`grep -il 'assum' <session>/subagents/*.jsonl` finds the candidates).
-- Every stated assumption is a bet until a note says the same thing. List
-  each one in the dream-log (a reply's "Assumptions" list, or any sentence
-  with "assume", "assuming", "if"), and next to it name the note whose claim
-  matches it, word for word in substance: same subject, same quantity. A note
-  that only supplies an input to the assumption does not capture it. For
-  example, a usage-rate note does not capture "the last burr brushing is
-  unrecorded, so the next one is due about a month after it". With no
-  matching note, create one (`origin: transcript`, `status: bet`, `made:`
-  the record's timestamp, evidence = that record's `#uuid` plus the
-  `knowledge/` section it rests on), then settle it like any bet, running
-  the dossier. "Restates settled notes" is a claim you must back with the
-  matching note's path for each assumption.
-
 ### Dossier
 
 An open bet carries a `## Dossier` section at the end of its body, generated

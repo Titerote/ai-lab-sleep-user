@@ -114,7 +114,10 @@ def record_text(rec, limit=EXTRACT_CHARS):
             if t == "text":
                 parts.append(b.get("text", ""))
             elif t == "tool_use":
-                parts.append(f"[tool_use {b.get('name')}]")
+                if b.get("name") == "SubagentHandback":
+                    parts.append(f"[handback] {(b.get('input') or {}).get('message', '')}")
+                else:
+                    parts.append(f"[tool_use {b.get('name')}]")
             elif t == "tool_result":
                 c = b.get("content")
                 if isinstance(c, list):
