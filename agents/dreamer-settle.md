@@ -42,6 +42,17 @@ is not that clone, it is at `$SLEEP_HOME/user`, default `~/.ai-lab-sleep/user`;
   into `$SLEEP_HOME/work/<slug>` (or pull if present) and read it at its
   current `main`. Never write into a project clone.
 
+Evidence is written so a script can find it again. Every `evidence:` entry
+is a locator, optionally followed by a YAML comment:
+
+- a transcript turn: `transcripts/<slug>/<session>/main.jsonl#<uuid>` (or
+  `.../subagents/<file>.jsonl#<uuid>`), the `uuid` field of the record you
+  are citing. Put a short quote of the turn in the comment so a reader knows
+  what is there without opening the file.
+- a place in the project: `knowledge/<file>.md#<heading-slug>` for a section,
+  `knowledge/<file>.md:<line>` for a line (any path in the project repo
+  works). Never cite a file without a section or line.
+
 Step 0, before anything else: apply the outbox. For each new session with a
 `memory-outbox/`, copy every file under it to the same path under
 `agent-memory/` (`memory-outbox/agent-memory/noter/notes/x.md` →
@@ -54,8 +65,8 @@ other; settle them in the same pass.
 Step 1, from the new transcripts (skip only this step when there are none):
 - A transcript, a user turn, or an issue touches a note: decide confirmed,
   corrected, or retired. Write the decision into the note's frontmatter
-  (`status`, `settled`, `evidence` with the transcript path and the knowledge
-  path). A corrected note keeps the old claim under `## Was`. Evidence that
+  (`status`, `settled`, `evidence` locators for the turn and the knowledge
+  place). A corrected note keeps the old claim under `## Was`. Evidence that
   contradicts a bet settles it as corrected, even when the evidence is a
   user's statement rather than a measurement; say in the note what would
   strengthen it.
@@ -80,14 +91,26 @@ columns for every line, answering four questions per note:
    reason. Memory keeps only what the environment doesn't show.
 2. Contradicted? Does the project now say otherwise? Yes → keep the status;
    raise it in `issues.md` with both texts. The user decides which is right.
-3. Still a bet? Look again at all evidence, including the sweep and
-   consistency with user-stated figures. Close it if anything settles it;
-   if it stays open, its body must say exactly what is missing. A bet that
-   nothing could ever settle is retired as unsettleable.
+3. Still a bet? For every note whose status is `bet`, run
+   `python3 scripts/bet-dossier.py <note> --write`. It reads the note's
+   evidence locators and `[[notes/...]]` links and appends a `## Dossier`
+   to the note: a dated timeline of the belief turn and the turn before it,
+   every change of the cited file lines (`git log -L` in the project), and
+   the related notes. Decide from the timeline, not from memory of the
+   files. Close the bet if the timeline settles it (cite the dossier line
+   that does). If it stays open, leave the dossier in the note, write under
+   it exactly what is missing, and add one line to `issues.md` pointing at
+   the note: the human decides from the same timeline. A dossier that lists
+   locators it could not resolve is a defect of the note; fix the locators
+   first and run it again. A bet that nothing could ever settle is retired
+   as unsettleable.
 4. Right root? A note lives where its subject is, not where the agent that
-   heard it wrote it: about the person (conventions, household, preferences)
-   → `_user/notes/`; about the project or its domain → `_main/<project>/notes/`;
-   about how that agent does its job → `<agent>/`. Wrong root → `git mv` it,
+   heard it wrote it. The test: would this line answer the same question in
+   a different project? Then it is about the person → `_user/notes/`. Only
+   true of this project or its domain → `_main/<project>/notes/`. About how
+   that agent does its job → `<agent>/`. A fact the user stated about
+   themselves (a habit, a rate, a convention) is about the person even when
+   it was heard while working on a project file. Wrong root → `git mv` it,
    leave a one-line stub at the old path pointing to the new one, and fix
    links that named the old path. Memory roots have the same layout.
 
@@ -109,4 +132,4 @@ one to each other root's `dream-log.md` that you changed. Update
 outboxes consumed, and the project `main` commit each sweep was run
 against). Commit everything under `agent-memory/` and `dream-state.json`
 with message `dream(settle): …` and push to `main`. End by listing every
-file you changed.
+file you changed, and only files that are in the commit.
