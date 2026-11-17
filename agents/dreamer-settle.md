@@ -181,7 +181,9 @@ End, every run: append one entry to `agent-memory/_user/dream-log.md` (the
 run's summary: which files were read, the per-assumption list, the filled
 ledger, counts by origin) and one to each other root's `dream-log.md` that
 you changed. Update `dream-state.json` (`last_settled` = now as a full UTC
-timestamp, `consumed` = every transcript file and outbox read so far, and
+timestamp, `consumed` = every transcript file and outbox read so far — an
+outbox as its directory, `tx/<slug>/<session>/memory-outbox`, in that same
+`consumed` list, never under another key — and
 the project `main` commit each sweep was run against). Commit everything
 under `agent-memory/` and `dream-state.json` with message
 `dream(settle): …` and push to `main`. End by listing every file you
