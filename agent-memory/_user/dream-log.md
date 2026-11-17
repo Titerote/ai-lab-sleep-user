@@ -110,3 +110,6 @@
   - _user/notes/beans-2kg-per-month (confirmed, filed): no / no / n/a / yes / none
   - _user/notes/feedback_shot_counting (confirmed, note): no / no / n/a / yes / none
 - Counts by origin of notes created: note 3, transcript 0, filed 0. Open bets: 3.
+
+## 2026-11-17 dream(relate)
+- New wiki/coffee-consumption joining beans-2kg-per-month (confirmed) and two-double-shots-a-day (bet); their tension is already raised in issues.md.

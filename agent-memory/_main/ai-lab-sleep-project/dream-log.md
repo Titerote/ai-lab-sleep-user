@@ -67,3 +67,9 @@
 ## 2026-11-17 dream(promote)
 - Rewrote MEMORY.md; index lines repointed to current notes (retired cadence note, corrected burr note, _user links); mirrored _user rules to noter/checker.
 - Proposals: rule-lane cadence and citric2 proposals withdrawn (facts, not rules); replaced by knowledge proposals descaling-schedule-150 and descaler-product-citric2.
+
+## 2026-11-17 dream(relate) — after T7 split
+- wiki/descaling: cadence now rests on both retired notes (_main descale-150-both-setups, noter descale-every-150-shots: same lesson, two agents); Schedule line updated (user ruled 150, edit in project working tree, not on main yet).
+- wiki/grinder-burr-life: links new _user/wiki/coffee-consumption.
+- issues.md: index-lag issue ticked (fixed by promote cf180e7). No new note-vs-note conflicts; two-doubles vs 2 kg already in _user/issues.md.
+- noter/notes/group-head-gasket-yearly: single note on its subject, no page. All [[...]] in wiki/ and notes resolve.
