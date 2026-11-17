@@ -17,7 +17,7 @@ Missing: a source for the gasket interval (the machine manual or a user statemen
 
 ## Dossier
 
-_generated 2026-11-17T17:55Z by scripts/bet-dossier.py; status bet, origin note, project ai-lab-sleep-project_
+_generated 2026-11-17T22:16Z by scripts/bet-dossier.py; status bet, origin note, project ai-lab-sleep-project_
 
 ### Timeline
 

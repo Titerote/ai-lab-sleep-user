@@ -116,3 +116,20 @@
 
 ## 2026-11-17 dream(promote) — second pass
 - MEMORY.md refreshed: wiki/coffee-consumption added to map.
+
+## 2026-11-17 dream(settle) — eleventh pass (T8 outbox, rerun)
+- New files read: 3da63ac1/main.jsonl, subagents/agent-a37debc1948eab408.jsonl, memory-outbox (noter MEMORY.md + notes/descaler-storage-left-drawer.md); 3d798663/subagents/agent-{a088de895b2ec9993,abbf48af35a63b1c5,ae2b280c72a8602cb}.jsonl and 4dad6406/main.jsonl + subagents/agent-{a0d5015068cf2e71b,a159cd6540f608f1b,a240fd601e73953e6,a472b6ad7c8ad044c}.jsonl (earlier dream runs and the T8 runner: no bets, no user facts). Project main 8dc74fd; knowledge/ has no mention of a drawer.
+- Outbox: noter/MEMORY.md copied (repo copy unchanged since shipping, no conflict); the descaler note arrived as noter/notes/descaler-storage-left-drawer.md (frontmatter status user-stated/origin user, replaced), written by the agent: origin note. User turn 9cefa58f states the same claim: confirmed, origin stays note (not filed). Routed to _user/notes (household fact); stub left in noter/notes.
+- Per-assumption list: no agent assumptions in new files. User fact: sachets in the left kitchen drawer -> _user/notes/descaler-storage-left-drawer (captured by the noter's note, confirmed).
+- Ledger (visible? / contradicted? / bet? / right root? / action):
+  - _main/.../burr-40kg-figure-may-be-stale: no / no / closed / project / none (slug issue open)
+  - _main/.../burr-brush-due-unknown: no / no / open (dossier regenerated; needs user date) / project / none
+  - _main/.../descaler-product: no / no / n/a / project / none
+  - _user/notes/beans-2kg-per-month: no / no / n/a / yes / none
+  - _user/notes/feedback_shot_counting: no / no / n/a / yes / none
+  - _user/notes/two-double-shots-a-day: no / no / open (dossier regenerated) / yes / none
+  - _user/notes/descaler-storage-left-drawer: no / no / confirmed / yes (moved from noter) / created
+  - noter/maintenance.md: n/a (link stub)
+  - noter/notes/group-head-gasket-yearly: no / no / open (dossier regenerated) / noter / none
+  - noter/notes/descaler-storage-left-drawer: stub
+- Counts of live notes by origin: note 5, transcript 2, filed 1 (created this pass: note 1). No issues changed; no user ruling.

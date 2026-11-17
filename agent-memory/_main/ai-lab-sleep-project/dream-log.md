@@ -76,3 +76,6 @@
 
 ## 2026-11-17 dream(promote) — second pass
 - MEMORY.md refreshed: cadence rule reflects the Schedule edit in the working tree; linked _user coffee wiki; descaling-schedule-150 proposal narrowed to the counting clause.
+
+## 2026-11-17 dream(settle) — eleventh pass
+- burr-brush-due-unknown dossier regenerated; still open (needs user's last-brush date). No other change.
