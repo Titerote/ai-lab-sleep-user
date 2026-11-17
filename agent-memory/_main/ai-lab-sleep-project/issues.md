@@ -7,3 +7,4 @@
 
   (settle 2026-11-12: moved descaler-product to _main/ai-lab-sleep-project/notes/descaler-product.md and feedback_shot_counting to _user/notes/feedback_shot_counting.md, same filenames so bare-name links still resolve; stubs left at old paths. Relate may repoint wiki links.)
 - [ ] 2026-11-16 knowledge/descaling.md "Schedule" still says 200 shots while "Changes" and water.md say 150; internal inconsistency in the project, user to decide whether to rewrite Schedule. (Memory note on 150 retired; MEMORY.md/wiki links to notes/descale-150-both-setups now point to notes/_retired/, relate/promote to repoint.)
+- [ ] 2026-11-17 _main/ai-lab-sleep-project/notes/burr-40kg-figure-may-be-stale.md: open bet; see its Dossier. knowledge/grinder.md#burr-life is undated and unchanged since initial commit; the user decides from the timeline or supplies the date of the 40 kg reading.

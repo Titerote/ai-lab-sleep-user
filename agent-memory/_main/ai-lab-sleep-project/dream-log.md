@@ -48,3 +48,6 @@
 
 ## 2026-11-16 settle (third pass)
 - No new transcripts or outbox; no note changed. Sweep as in _user/dream-log.md.
+
+## 2026-11-17 settle (updated instructions)
+- No new transcripts. Moved beans-2kg-per-month to _user/notes (stub left). Locators rewritten on descaler-product and burr note; burr dossier generated, bet stays open, issue line added. See _user/dream-log.md.
