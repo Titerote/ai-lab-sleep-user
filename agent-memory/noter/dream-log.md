@@ -34,3 +34,6 @@ Split sachet-stock-six-months-assumptions into sachet-demand-six-months and last
 
 ## 2026-11-17 dream(settle) — fifth pass
 No new bets or user facts. Dossiers of open bets regenerated.
+
+## 2026-11-17 dream(relate)
+- New wiki/sachet-stock.md: sachet-demand-six-months and last-descale-shot-count-unknown (both bets) add up to the 5-sachet estimate; links the usage-rate notes in _user and _main wiki/descaling. Gasket bet: one note, no page.

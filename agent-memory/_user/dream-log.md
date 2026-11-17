@@ -164,3 +164,6 @@ Ledger (visible/contradicted/bet/right root/action):
   - noter sachet-demand-six-months, last-descale-shot-count-unknown: no/no/open, dossier regenerated/yes/none
   - noter maintenance.md, sachet-stock-six-months-assumptions: link stubs
 Counts of live notes by origin: note 8, transcript 2, filed 1; created 0. Filed this pass: none.
+
+## 2026-11-17 dream(relate)
+- wiki/coffee-consumption: links noter/wiki/sachet-stock (the 2 kg rate also drives the sachet estimate). No new conflicts; two-doubles bet stays in issues.md.

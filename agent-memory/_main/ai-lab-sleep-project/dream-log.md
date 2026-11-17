@@ -94,3 +94,9 @@ descaler-product body: "Steps" corrected to "Procedure"; issue ticked. burr-brus
 
 ## 2026-11-17 dream(settle) — fifth pass
 No new bets or user facts. Dossiers of open bets regenerated. Renamed burr-40kg-figure-may-be-stale to burr-40kg-figure-current (stub left); issue ticked.
+
+## 2026-11-17 dream(relate) — after T9 settle
+- Project read at origin/main 0bf559c: descaling.md "Schedule" now says 150 (committed). wiki/descaling cadence line updated; baseline line notes Schedule still counts by the machine counter; new Stock line links noter/wiki/sachet-stock.
+- wiki/grinder-burr-life: repointed to notes/burr-40kg-figure-current (renamed by settle).
+- issues.md: raised MEMORY.md cadence line still calling the Schedule edit uncommitted (for promote).
+- No note-vs-note conflicts beyond those already open. Gasket and burr-brush bets: single notes, no new page. All [[...]] in wiki/ and notes resolve.

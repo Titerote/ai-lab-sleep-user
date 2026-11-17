@@ -19,3 +19,4 @@
   (settle 2026-11-17: body corrected to "Procedure"; proposal already fixed by promote.)
 
 - [ ] 2026-11-17 notes/burr-40kg-figure-current: its evidence says the user's "treat the file as current" has no transcript locator and `_user/decisions.md` does not exist; the user can restate the ruling to a dream session to log it.
+- [ ] 2026-11-17 MEMORY.md (_main/ai-lab-sleep-project): cadence rule says the descaling.md "Schedule" edit to 150 is an "uncommitted working-tree edit"; it is on ai-lab-sleep-project origin/main since 0bf559c (Changes entry "2026-11-17: Schedule section rewritten to 150 shots"). Promote rewrites the line; no new evidence needed. (The retired descale-150-both-setups evidence comment "Schedule section still says 200" is history in a retired note, left as is.)
