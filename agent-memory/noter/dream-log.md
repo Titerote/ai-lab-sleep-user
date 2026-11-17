@@ -22,3 +22,6 @@
 
 ## 2026-11-17 dream(promote) — second pass
 - MEMORY.md refreshed: retired cadence link repointed to noter/notes/_retired, gasket bet listed as open (not a rule), mirror refreshed.
+
+## 2026-11-17 settle (pass 4)
+Applied cloud outbox from 3da63ac1: MEMORY.md (adds drawer line) and the drawer note, moved to `_user/notes/descaler-storage-left-drawer.md` (filed) with a stub left here. Gasket bet stays open, dossier regenerated.

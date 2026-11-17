@@ -17,7 +17,7 @@ Missing: the user stating their own daily shots. Would strengthen it: a user tur
 
 ## Dossier
 
-_generated 2026-11-17T17:55Z by scripts/bet-dossier.py; status bet, origin note, project ai-lab-sleep-project_
+_generated 2026-11-17T22:10Z by scripts/bet-dossier.py; status bet, origin note, project ai-lab-sleep-project_
 
 ### Timeline
 
