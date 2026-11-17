@@ -23,6 +23,19 @@ SessionStart and agents carry a pointer to read their own; what they write
 on the VM travels as `memory-outbox/` on the project's transcripts branch
 and the settle phase applies it here.
 
+Outbox rules (settle, Step 0):
+- A note applied from an outbox was written by the agent itself:
+  `origin: note`, whatever frontmatter the writer gave it (writers never
+  set `status`/`origin`; a value outside the sets below, such as
+  `user-stated` or `user`, becomes `status: bet`, `origin: note`). A user
+  turn that states the same claim confirms it (`status: confirmed`, origin
+  stays `note`); it is a prior note, so it is never re-filed as
+  `origin: filed`. Routing it to another root moves it with its origin.
+- The applied outbox is recorded in `dream-state.json` `consumed`, the
+  same list as transcript files, as its directory
+  `tx/<slug>/<session>/memory-outbox`. No other key (`outboxes_consumed`
+  is obsolete).
+
 Auto memory's native layout is `MEMORY.md` plus topic files it names
 (`debugging.md`, `conventions.md`, ...). The dreamer treats every file that is
 not `MEMORY.md` and not under `wiki/` as layer 1, whatever it is called, and
