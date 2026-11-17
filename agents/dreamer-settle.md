@@ -32,6 +32,17 @@ is not that clone, it is at `$SLEEP_HOME/user`, default `~/.ai-lab-sleep/user`;
   (memory written in a cloud session, which cannot push to this repo). Read
   only sessions newer than `dream-state.json` (`last_settled`). The user's
   own turns are the strongest evidence; a user correction outranks any file.
+- New is per file, not per session: any `main.jsonl` or
+  `subagents/agent-*.jsonl` not listed in `dream-state.json` `consumed` is
+  new, even if its session's `main.jsonl` was consumed earlier (a session
+  keeps shipping after a dream). Read every `subagents/agent-*.jsonl` of a
+  new session, not only `main.jsonl`: an agent's bets live in its own
+  file. Judge each subagent file on its own; a session that is "only a test
+  run" or "only a lab-runner" still carries real agent bets in its
+  subagents. An agent's final answer is often not a text block but the
+  `input.message` of an assistant `tool_use` named `SubagentHandback`; read
+  those, and cite that record's `uuid`. List every file you read in
+  `consumed`.
 - The memory roots: `agent-memory/<agent>/`, `agent-memory/_main/<project>/`,
   `agent-memory/_user/`. Every file there except `MEMORY.md` and `wiki/` is a
   note to settle, whatever auto memory named it. A file holding several
@@ -146,7 +157,7 @@ reads it to find topic files). Do not edit `knowledge/` anywhere.
 End, every run: append one entry to `agent-memory/_user/dream-log.md` (the
 run's summary: which transcripts, the filled ledger, counts by origin) and
 one to each other root's `dream-log.md` that you changed. Update
-`dream-state.json` (`last_settled` = now, list of transcript paths and
+`dream-state.json` (`last_settled` = now as a full UTC timestamp, list of transcript paths and
 outboxes consumed, and the project `main` commit each sweep was run
 against). Commit everything under `agent-memory/` and `dream-state.json`
 with message `dream(settle): …` and push to `main`. End by listing every
