@@ -17,6 +17,8 @@ Purpose: `agents/noter.md`. Answer from `knowledge/`, cite file and section.
 ## Open bets (do not state as fact)
 - Group head gasket replaced yearly: assumed, nothing in knowledge/ says so. [note](notes/group-head-gasket-yearly.md)
 
+- Six-month sachet stock (about 5) assumes 2 kg beans/month and 18 g/shot, not in knowledge/. [note](notes/sachet-stock-six-months-assumptions.md)
+
 ## Preferences
 - [Shot counting baseline](feedback_shot_counting.md) — stub; note lives in `_user/notes/`
 
