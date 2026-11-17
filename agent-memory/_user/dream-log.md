@@ -74,3 +74,18 @@
   - _user/notes/feedback_shot_counting (confirmed, note): no / no / n/a / yes / none
 - Open issue (descaling.md Schedule 200 vs 150 in Changes/water.md) still awaits the user.
 - Counts settled by origin: note 0 / transcript 0 / filed 0.
+
+## 2026-11-17 settle (ninth pass)
+- New files read: 3de1b0b0/main.jsonl (T6 test runner, no user facts), 3de1b0b0/subagents/agent-a00c7590dcd266397.jsonl (noter burr-brush Q&A), agent-a39fe2880d6a0b2db.jsonl (this settle run), 652b2c70/subagents/agent-a8e080d920a1f19d9.jsonl (eighth settle pass, no bets). No outbox. Project main ca72f5a (tests-only commits; knowledge/ unchanged since 6bf7773).
+- Per-assumption list (noter 5aee0090):
+  1. Usage ~2 kg/month, so brushing roughly monthly: captured by _user/notes/beans-2kg-per-month.
+  2. Last brush date unknown, next due ~one interval after an unknown point: no capturing note; created _main/ai-lab-sleep-project/notes/burr-brush-due-unknown (origin transcript, bet, open, dossier written, issue raised).
+  3. 40 kg burr figure undated, cannot say if current: captured by _main/ai-lab-sleep-project/notes/burr-40kg-figure-may-be-stale (corrected: user said treat file as current).
+- Ledger (visible? / contradicted? / bet? / right root? / action):
+  - _main/.../burr-40kg-figure-may-be-stale (corrected, transcript): no / no / closed / project / none
+  - _main/.../descaler-product (confirmed, note): no / no / n/a / project / none
+  - _main/.../burr-brush-due-unknown (bet, transcript): no / no / open (dossier, needs user date) / project / created
+  - _user/notes/beans-2kg-per-month (confirmed, filed): no / no / n/a / yes / none
+  - _user/notes/feedback_shot_counting (confirmed, note): no / no / n/a / yes / none
+- Open issues: descaling.md Schedule 200 vs 150; burr last-brush date.
+- Counts: created transcript 1; settled note 0 / filed 0.

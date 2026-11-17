@@ -54,3 +54,6 @@
 
 ## 2026-11-17 settle (burr bet closed)
 - burr-40kg-figure-may-be-stale corrected per user ("treat the file as current"); issue ticked.
+
+## 2026-11-17 settle (ninth pass)
+- Added open bet notes/burr-brush-due-unknown (origin transcript) from noter run 3de1b0b0/agent-a00c7590dcd266397; issue raised. Other notes unchanged. Details in _user/dream-log.md.
