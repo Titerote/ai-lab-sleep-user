@@ -89,7 +89,15 @@ Step 0, before anything else: apply the outbox. For each new session with a
 what this repo had at the session's `manifest.json` `last_shipped` time, do
 not overwrite: save the outbox version beside it as `<name>.cloud-<session>.md`
 and raise the conflict in `issues.md`. Those files are now notes like any
-other; settle them in the same pass.
+other; settle them in the same pass. An applied outbox note was written by
+the agent itself in its cloud session, so it is `origin: note`, whatever
+the writer put in its frontmatter: writers never set `status` or `origin`,
+so replace any value outside the format's sets (`user-stated`, `user`, …)
+with `status: bet`, `origin: note` before settling. It is a prior note for
+Step 1: a user statement that matches it confirms it (`status: confirmed`,
+evidence = that turn's `#uuid`), and the `origin: filed` rule does not
+apply to it. Routing it to another root moves the note with its origin;
+never re-file it as a new note.
 
 Step 1, from the new transcript files (skip only this step when there are
 none). For each file, list in your working notes every assumption or
