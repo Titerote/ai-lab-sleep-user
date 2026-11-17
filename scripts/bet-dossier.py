@@ -271,7 +271,13 @@ def main():
                 problems.append(f"{path}: no record for #{frag or '?'}"
                                 + (f' or phrase "{phrase}"' if phrase else "; add #<uuid> or a \"quoted phrase\" in the comment"))
                 continue
+            # the turn before: walk up past same-type chunks (an assistant
+            # turn is several records) to the previous record of another type
             parent = by_id.get(rec.get("parentUuid"))
+            hops = 0
+            while parent and parent.get("type") == rec.get("type") and hops < 20:
+                parent = by_id.get(parent.get("parentUuid"))
+                hops += 1
             ts = parse_ts(rec.get("timestamp"))
             sid = parts[2][:8]
             timeline.append((ts, f"turn in `{tslug}/{sid}…/{parts[-1]}` ({rec.get('type')}): {record_text(rec)[:90].replace(chr(10), ' ')}"))
