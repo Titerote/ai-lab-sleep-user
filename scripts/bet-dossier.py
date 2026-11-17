@@ -3,7 +3,7 @@
 
 Usage: scripts/bet-dossier.py <note.md> [--write]
 
-Reads the note's frontmatter `evidence:` list and its `[[notes/...]]` links,
+Reads the note's frontmatter `evidence:` list and its `[[...notes/...]]` links,
 then prints one markdown dossier:
 
   - a timeline (note made, each transcript turn, each change of the cited
@@ -21,6 +21,10 @@ Evidence item grammar (one per list entry, YAML comment allowed after it):
   knowledge/<file>.md:<line>[-<line>]               line history
   knowledge/<file>.md                               file history
   (any path under the project repo works, not only knowledge/)
+
+Links: [[notes/x]] is relative to the note's own root; [[_user/notes/x]],
+[[_main/<project>/notes/x]] and [[<agent>/notes/x]] are relative to
+agent-memory/. A one-line "moved to" stub is followed.
 
 Transcripts are read from $SLEEP_HOME/tx/<slug>/, the project from
 $SLEEP_HOME/work/<slug> (fetched, never checked out: history is read from
@@ -297,17 +301,40 @@ def main():
             histories.append(hist)
             timeline.extend(events)
 
-    for link in sorted(set(re.findall(r"\[\[(notes/[^\]|#]+)\]\]", body_wo))):
-        rp = os.path.join(os.path.dirname(os.path.dirname(note_path)), link + ".md")
+    # [[notes/x]] is relative to this note's root; [[_user/notes/x]],
+    # [[_main/<project>/notes/x]] and [[<agent>/notes/x]] are relative to
+    # agent-memory/. A one-line "moved to" stub is followed once.
+    mem_root = note_path[: note_path.index("/agent-memory/") + len("/agent-memory/")] \
+        if "/agent-memory/" in note_path else None
+    note_root = os.path.dirname(os.path.dirname(note_path))
+    for link in sorted(set(re.findall(r"\[\[([^\]|#]+)\]\]", body_wo))):
+        if link.startswith("wiki/"):
+            continue
+        if link.startswith("notes/"):
+            rp = os.path.join(note_root, link + ".md")
+        elif mem_root and "/notes/" in link:
+            rp = os.path.join(mem_root, link + ".md")
+        else:
+            continue
         if not os.path.isfile(rp):
-            problems.append(f"[[{link}]]: file not found beside this note")
+            problems.append(f"[[{link}]]: file not found")
             continue
         with open(rp, encoding="utf-8") as f:
-            rfm, rbody = read_frontmatter(f.read())
+            rtext = f.read()
+        m = re.search(r"\bmoved to\s+`?([^\s`]+\.md)`?", rtext)
+        if m and rtext.count("\n") <= 2:
+            cand = m.group(1)
+            cand = os.path.join(mem_root, cand.split("agent-memory/", 1)[-1]) if mem_root else cand
+            if os.path.isfile(cand):
+                rp = cand
+                with open(rp, encoding="utf-8") as f:
+                    rtext = f.read()
+        rfm, rbody = read_frontmatter(rtext)
         claim = next((l.strip() for l in rbody.splitlines() if l.strip()), "")
         rmade = parse_ts(rfm.get("made") if isinstance(rfm.get("made"), str) else None)
-        related.append((link, rfm.get("status", "?"), rfm.get("origin", "?"), rfm.get("made", "?"), claim))
-        timeline.append((rmade, f"related note made ({rfm.get('status', '?')}): [[{link}]] — {claim[:90]}"))
+        shown = os.path.relpath(rp, mem_root)[:-3] if mem_root else link
+        related.append((shown, rfm.get("status", "?"), rfm.get("origin", "?"), rfm.get("made", "?"), claim))
+        timeline.append((rmade, f"related note made ({rfm.get('status', '?')}): [[{shown}]] — {claim[:90]}"))
 
     out = []
     out.append(f"## Dossier\n")
