@@ -79,6 +79,25 @@ A transcript entry without `#<uuid>` is resolved by the first `"quoted phrase"`
 in its comment (legacy notes); new entries always carry the uuid. A project
 path without section or line is not evidence.
 
+### Reading transcripts (settle)
+
+This section binds settle even where its own prompt is older.
+
+- A file is new unless its exact path is in `dream-state.json` `consumed`.
+  That holds per file, not per session: a session keeps shipping after a
+  dream, so `subagents/agent-*.jsonl` files can appear in a session whose
+  `main.jsonl` was consumed long ago. `last_settled` alone never makes a
+  file old.
+- Read every new `subagents/agent-*.jsonl`, not only `main.jsonl`. Agents
+  state their bets in their own runs. A session that is "only a test run"
+  or "only a lab-runner" still carries real agent bets in its subagents;
+  judge each subagent file by its own records.
+- An agent's final answer is often not an assistant text block but the
+  `input.message` of an assistant `tool_use` named `SubagentHandback`. Read
+  it, and cite that record's `uuid` as the belief turn
+  (`transcripts/<slug>/<session>/subagents/agent-<id>.jsonl#<uuid>`).
+- Add every file you read to `consumed`, subagent files included.
+
 ### Dossier
 
 An open bet carries a `## Dossier` section at the end of its body, generated
