@@ -1,5 +1,5 @@
 {
-  "last_settled": "2026-11-17",
+  "last_settled": "2026-11-17T13:41:32Z",
   "consumed": [
     "tx/ai-lab-sleep-project/f1eb9a45-ebb0-5459-ad0e-2a1756fa35d3/main.jsonl",
     "tx/ai-lab-sleep-project/b70f89e8-d860-4e8a-b7ce-1367c1d10742/main.jsonl",
@@ -17,7 +17,24 @@
     "tx/ai-lab-sleep-project/6b877565-f550-592a-8166-c298a2f8cf33/main.jsonl",
     "tx/ai-lab-sleep-project/762cb005-f4cd-5d06-92fd-a0c9d044fc63/main.jsonl",
     "tx/ai-lab-sleep-project/9f3f4c45-c37f-4c45-a164-c4a284f21188/probe",
-    "tx/ai-lab-sleep-project/652b2c70-9887-4090-9002-6f99cf78248a/main.jsonl"
+    "tx/ai-lab-sleep-project/652b2c70-9887-4090-9002-6f99cf78248a/main.jsonl",
+    "tx/ai-lab-sleep-project/4600eb0b-be42-415a-ad82-b44c3bffa0f6/subagents/agent-a889c5cc4bc900dab.jsonl",
+    "tx/ai-lab-sleep-project/4600eb0b-be42-415a-ad82-b44c3bffa0f6/subagents/agent-ac90122322ee2121b.jsonl",
+    "tx/ai-lab-sleep-project/4600eb0b-be42-415a-ad82-b44c3bffa0f6/subagents/agent-ae947a77b7febf51c.jsonl",
+    "tx/ai-lab-sleep-project/4be089a6-6cc4-4376-aa1a-9080e0c402ca/subagents/agent-a64c9ebed93c27575.jsonl",
+    "tx/ai-lab-sleep-project/4be089a6-6cc4-4376-aa1a-9080e0c402ca/subagents/agent-a793b67f4d38f591b.jsonl",
+    "tx/ai-lab-sleep-project/5764ef00-fe95-590d-a3c5-103b826f75b1/subagents/agent-a9859dabb05feee9c.jsonl",
+    "tx/ai-lab-sleep-project/5764ef00-fe95-590d-a3c5-103b826f75b1/subagents/agent-aef429f184e2f85c4.jsonl",
+    "tx/ai-lab-sleep-project/652b2c70-9887-4090-9002-6f99cf78248a/subagents/agent-a1d822f0a01038697.jsonl",
+    "tx/ai-lab-sleep-project/652b2c70-9887-4090-9002-6f99cf78248a/subagents/agent-a44d29c3ef7203dc1.jsonl",
+    "tx/ai-lab-sleep-project/652b2c70-9887-4090-9002-6f99cf78248a/subagents/agent-a9f9b36aeafd17fc2.jsonl",
+    "tx/ai-lab-sleep-project/652b2c70-9887-4090-9002-6f99cf78248a/subagents/agent-ab94099bfc4599979.jsonl",
+    "tx/ai-lab-sleep-project/9db72d39-5774-4c30-aa23-7865067a9016/subagents/agent-ac910d9e53d0298d0.jsonl",
+    "tx/ai-lab-sleep-project/b70f89e8-d860-4e8a-b7ce-1367c1d10742/subagents/agent-a2dfcba03738ca112.jsonl",
+    "tx/ai-lab-sleep-project/b70f89e8-d860-4e8a-b7ce-1367c1d10742/subagents/agent-aa669d0a8bd7d1170.jsonl",
+    "tx/ai-lab-sleep-project/b70f89e8-d860-4e8a-b7ce-1367c1d10742/subagents/agent-ae33ad7a5bd854341.jsonl",
+    "tx/ai-lab-sleep-project/dac6cba5-a760-57e7-afa1-79e8b032b251/subagents/agent-a67a418381681e386.jsonl",
+    "tx/ai-lab-sleep-project/f1eb9a45-ebb0-5459-ad0e-2a1756fa35d3/subagents/agent-a2852f74019cef8c2.jsonl"
   ],
   "outboxes_consumed": [],
   "project_main": {

@@ -54,3 +54,13 @@
   - _user/notes/feedback_shot_counting (confirmed, note): no / no / n/a / yes / none
 - Open issue (descaling.md Schedule 200 vs 150 in Changes/water.md) still awaits the user.
 - Counts settled by origin: note 0 / transcript 0 / filed 0.
+
+## 2026-11-17 settle (seventh pass)
+- No new session dirs and no outbox. 17 subagent files not yet in `consumed` (sessions 4600eb0b, 4be089a6, 5764ef00, 652b2c70, 9db72d39, b70f89e8, dac6cba5, f1eb9a45) read per file and consumed: earlier dream phases (settle/relate/promote), noter/checker Q&A runs, marker probes. Each restated an already-settled note (150 cadence, citric2, shot counting, 2 kg/month, undated 40 kg); no new bet, no new user fact, nothing filed. Project main ce9776b; knowledge/ unchanged since 6bf7773.
+- Ledger (visible? / contradicted? / bet? / right root? / action):
+  - _main/ai-lab-sleep-project/notes/burr-40kg-figure-may-be-stale (corrected, transcript): no / no / closed / project / none
+  - _main/ai-lab-sleep-project/notes/descaler-product (confirmed, note): no / no / n/a / project / none
+  - _user/notes/beans-2kg-per-month (confirmed, filed): no / no / n/a / yes / none
+  - _user/notes/feedback_shot_counting (confirmed, note): no / no / n/a / yes / none
+- Open issue (descaling.md Schedule 200 vs 150 in Changes/water.md) still awaits the user.
+- Counts settled by origin: note 0 / transcript 0 / filed 0.
