@@ -1,4 +1,50 @@
 {
+  "permissions": {
+    "allow": [
+      "Read(./**)",
+      "Read(~/.ai-lab-sleep/**)",
+      "Edit(./agent-memory/**)",
+      "Write(./agent-memory/**)",
+      "Edit(./dream-state.json)",
+      "Edit(./proposals/**)",
+      "Write(./proposals/**)",
+
+      "Bash(git status:*)",
+      "Bash(git log:*)",
+      "Bash(git show:*)",
+      "Bash(git diff:*)",
+      "Bash(git rev-parse:*)",
+      "Bash(git add:*)",
+      "Bash(git mv:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git pull:*)",
+      "Bash(git fetch:*)",
+      "Bash(git clone:*)",
+      "Bash(git -C:*)",
+      "Bash(git -c:*)",
+
+      "Bash(python3 scripts/bet-dossier.py:*)",
+      "Bash(scripts/bet-dossier.py:*)",
+      "Bash(scripts/dream-state.py:*)",
+      "Bash(scripts/notes-ledger.sh)",
+
+      "Bash(ls:*)",
+      "Bash(cat:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(grep:*)",
+      "Bash(wc:*)",
+      "Bash(date:*)",
+      "Bash(find:*)",
+      "Bash(diff:*)",
+      "Bash(mkdir:*)",
+      "Bash(cp:*)",
+      "Bash(mv:*)",
+      "Bash(sed -n:*)",
+      "Bash(awk:*)"
+    ]
+  },
   "hooks": {
     "PreToolUse": [
       {
