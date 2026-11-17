@@ -1,5 +1,5 @@
-# Maintenance notes
+# Maintenance notes (split 2026-11-17, one claim per note)
 
-- Descale every 150 shots; the user corrected the old 200 figure.
-- The group head gasket is replaced once a year. Nothing in knowledge/ says so; I assumed the usual interval.
-- The user drinks two double shots a day.
+- [[notes/_retired/descale-every-150-shots]] — retired, now in knowledge/
+- [[notes/group-head-gasket-yearly]] — open bet
+- [[_user/notes/two-double-shots-a-day]] — moved to _user

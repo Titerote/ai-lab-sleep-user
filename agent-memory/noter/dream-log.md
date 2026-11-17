@@ -16,3 +16,6 @@
 
 ## 2026-11-17 dream(promote)
 - Rewrote MEMORY.md; index lines repointed to current notes (retired cadence note, corrected burr note, _user links); mirrored _user rules to noter/checker.
+
+## 2026-11-17 dream(settle) — T7 split
+- Split maintenance.md into noter/notes/_retired/descale-every-150-shots (retired, visible in knowledge/water.md:10 and descaling.md:17), noter/notes/group-head-gasket-yearly (open bet, dossier, issues.md) and _user/notes/two-double-shots-a-day (routed to _user, open bet). maintenance.md is now a link stub. Details in _user/dream-log.md.

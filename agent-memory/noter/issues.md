@@ -1,0 +1,1 @@
+- [ ] 2026-11-17 notes/group-head-gasket-yearly: open bet (gasket replaced once a year, an assumed "usual interval"); nothing in knowledge/ or any transcript mentions a gasket. See its Dossier. User or the machine manual supplies the interval to settle.

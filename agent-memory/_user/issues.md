@@ -1,0 +1,1 @@
+- [ ] 2026-11-17 notes/two-double-shots-a-day: open bet, written by the noter with no user turn behind it; beans-2kg-per-month (about 2 kg/month) is higher than two doubles a day (about 1.1 kg). User states their own daily shots to settle. See its Dossier.

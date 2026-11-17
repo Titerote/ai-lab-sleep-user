@@ -92,3 +92,21 @@
 
 ## 2026-11-17 dream(promote)
 - Rewrote MEMORY.md; index lines repointed to current notes (retired cadence note, corrected burr note, _user links); mirrored _user rules to noter/checker.
+
+## 2026-11-17 dream(settle) — tenth pass (T7 split)
+- New files read: 3d798663/main.jsonl (T7 test runner session: setup and launching this dream, no user facts), 3de1b0b0/subagents/agent-a3307409c7150bbee.jsonl (relate run) and agent-a7ff0d3a98c8fc716.jsonl (promote run): no bets, no user facts. No outbox. Project main 9afb012 (tests only; knowledge/ unchanged).
+- Fixture noter/maintenance.md (origin note, no frontmatter) held three claims; split into notes, file left as a link stub. Per-claim list:
+  1. "Descale every 150 shots; user corrected 200": no prior capturing note in noter; created noter/notes/_retired/descale-every-150-shots (retired, visible in knowledge/water.md:10, descaling.md:17).
+  2. "Group head gasket replaced yearly (assumed usual interval)": created noter/notes/group-head-gasket-yearly (bet, no evidence anywhere, Open + Dossier, issue in noter/issues.md).
+  3. "User drinks two double shots a day": about the person, created _user/notes/two-double-shots-a-day (bet, origin note; no user turn; Open + Dossier, issue in _user/issues.md; 1.1 kg/month vs user-stated 2 kg household).
+- Ledger (visible? / contradicted? / bet? / right root? / action):
+  - noter/maintenance.md (split): n/a / no / n/a / split by claim / stub left
+  - noter/notes/_retired/descale-every-150-shots (retired, note): yes / no / closed / noter / created
+  - noter/notes/group-head-gasket-yearly (bet, note): no / no / open (dossier) / noter / created
+  - _user/notes/two-double-shots-a-day (bet, note): no / no / open (dossier) / _user / created
+  - _main/.../burr-40kg-figure-may-be-stale (corrected): no / no / closed / project / none
+  - _main/.../burr-brush-due-unknown (bet): no / no / open (dossier, needs user date) / project / none
+  - _main/.../descaler-product (confirmed): no / no / n/a / project / none
+  - _user/notes/beans-2kg-per-month (confirmed, filed): no / no / n/a / yes / none
+  - _user/notes/feedback_shot_counting (confirmed, note): no / no / n/a / yes / none
+- Counts by origin of notes created: note 3, transcript 0, filed 0. Open bets: 3.
