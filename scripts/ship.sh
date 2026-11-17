@@ -67,9 +67,17 @@ fi
 dest="$T/$sid"
 mkdir -p "$dest/subagents" "$dest/probe"
 
-# Serialize concurrent hooks on one session (portable lock, no flock on macOS).
-lock="$state/lock"
-for _ in $(seq 1 50); do mkdir "$lock" 2>/dev/null && break; sleep 0.2; done
+# Serialize every hook that touches this project's clone, across sessions
+# (portable lock, no flock on macOS). Wait up to 10 min; a lock older than
+# 15 min belongs to a dead hook and is broken. Never proceed without it: two
+# hooks in one clone is how the branch diverged (T7, 2026-11-17).
+lock="$SLEEP_HOME/state/$slug/lock"
+for _ in $(seq 1 1200); do
+  mkdir "$lock" 2>/dev/null && break
+  if [ -n "$(find "$lock" -maxdepth 0 -mmin +15 2>/dev/null)" ]; then rmdir "$lock" 2>/dev/null; continue; fi
+  sleep 0.5
+done
+[ -d "$lock" ] || { log "$slug/$sid $event: could not take the clone lock; nothing shipped"; exit 0; }
 trap 'rmdir "$lock" 2>/dev/null' EXIT
 
 [ -f "$tp" ] && cp "$tp" "$dest/main.jsonl"
@@ -144,14 +152,26 @@ case "$event" in
     fi;;
 esac
 
-push_branch() { # <repo> <branch> → 0 on success
-  local R="$1" B="$2" i
+push_branch() { # <repo> <branch> [snapshot] → 0 on success
+  # snapshot=1 (the transcripts clone): the working tree is always the newest
+  # copy of the source files, so on divergence the local commits are squashed
+  # onto the remote tip instead of rebased — a rebase conflict between two
+  # snapshots of one growing file has no right answer, a fresh copy has.
+  local R="$1" B="$2" snap="${3:-0}" i
   for i in 1 2 3; do
     if [ -d "$R/.git/rebase-merge" ] || [ -d "$R/.git/rebase-apply" ]; then
       G "$R" rebase --abort >/dev/null 2>&1 || rm -rf "$R/.git/rebase-merge" "$R/.git/rebase-apply"
     fi
     if git -C "$R" ls-remote --exit-code --heads origin "$B" >/dev/null 2>&1; then
-      G "$R" pull -q --rebase --autostash origin "$B" >/dev/null 2>&1 || { G "$R" rebase --abort >/dev/null 2>&1; sleep $((i*2)); continue; }
+      git -C "$R" fetch -q origin "$B" >/dev/null 2>&1
+      if [ "$(git -C "$R" rev-list --count "origin/$B" "^HEAD" 2>/dev/null || echo 1)" != 0 ]; then
+        if [ "$snap" = 1 ]; then
+          G "$R" reset -q --soft "origin/$B" && git -C "$R" add -A >/dev/null 2>&1
+          git -C "$R" diff --cached --quiet || G "$R" commit -q -m "ship: $slug squash local snapshots onto $B"
+        else
+          G "$R" pull -q --rebase --autostash origin "$B" >/dev/null 2>&1 || { G "$R" rebase --abort >/dev/null 2>&1; sleep $((i*2)); continue; }
+        fi
+      fi
     fi
     if G "$R" push -q origin "HEAD:refs/heads/$B" >/dev/null 2>&1 && [ "$(ahead "$R" "$B")" = 0 ]; then return 0; fi
     sleep $((i * 2))
@@ -160,7 +180,7 @@ push_branch() { # <repo> <branch> → 0 on success
 }
 
 ok=1
-[ "$(ahead "$T" "$BRANCH")" = 0 ] || { push_branch "$T" "$BRANCH" && log "$slug/$sid $event: pushed transcripts → $BRANCH" || { ok=0; log "$slug/$sid $event: transcripts push failed (left committed)"; }; }
+[ "$(ahead "$T" "$BRANCH")" = 0 ] || { push_branch "$T" "$BRANCH" 1 && log "$slug/$sid $event: pushed transcripts → $BRANCH" || { ok=0; log "$slug/$sid $event: transcripts push failed (left committed)"; }; }
 if [ "${CLAUDE_CODE_REMOTE:-}" != "true" ] && [ -d "$U/.git" ] && [ "$(ahead "$U" main)" != 0 ]; then
   push_branch "$U" main && log "$slug/$sid $event: pushed memory" || log "$slug/$sid $event: memory push failed (left committed)"
 fi
