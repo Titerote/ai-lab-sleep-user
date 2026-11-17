@@ -33,3 +33,9 @@ You may write only under `wiki/` and `issues.md`. You never change a note's
 status, body or links, never touch `MEMORY.md`. Append a `dream(relate)`
 entry to `dream-log.md`, commit under `agent-memory/` with message
 `dream(relate): …` and push to `main`. End by listing every file you changed.
+
+Project source: read a project only from its read-only clone at
+`$SLEEP_HOME/work/<slug>`, at `origin/main` after `git -C "$SLEEP_HOME/work/<slug>" fetch -q origin main`
+(`git show origin/main:<path>`), never from the working tree of any checkout,
+including your current directory. An uncommitted edit is not knowledge yet; if
+you notice one, say so in the dream-log and ignore its content.
