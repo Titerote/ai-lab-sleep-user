@@ -34,3 +34,13 @@
 
 ## 2026-11-17 settle (burr bet closed)
 - User answer relayed in a Mac session (not on any transcripts branch): "treat the file as current". burr-40kg-figure-may-be-stale: bet -> corrected (old claim under ## Was; Open and Dossier removed). Issue line ticked. No transcript locator exists for the statement; noted in the note. Descaling 150/200 issue untouched. Counts by origin settled: transcript 1.
+
+## 2026-11-17 settle (fifth pass)
+- New session 652b2c70-9887-4090-9002-6f99cf78248a (lab-runner "Run tests/T6-fresh-locators.md"): only a test command from the user, no user fact, no agent bet about a note. Consumed, nothing filed. No outbox. Project main now ce9776b (was 9c7e013; only tests/settings changes, no knowledge/ change).
+- Ledger (visible? / contradicted? / bet? / right root? / action):
+  - _main/ai-lab-sleep-project/notes/burr-40kg-figure-may-be-stale (corrected, transcript): no / no / closed / project / none. Its "treat the file as current" has no locator and no _user/decisions.md exists; stays as noted.
+  - _main/ai-lab-sleep-project/notes/descaler-product (confirmed, note): no (citric2 not in project) / no / n/a / project / none
+  - _user/notes/beans-2kg-per-month (confirmed, filed): no (grinder.md:11 only says brush every 2 kg) / no / n/a / yes / none
+  - _user/notes/feedback_shot_counting (confirmed, note): no / no / n/a / yes / none
+- Open issue: knowledge/descaling.md Schedule still says 200 (line 5) vs 150 in Changes (line 17); awaits user.
+- Counts settled by origin: note 0 / transcript 0 / filed 0.
