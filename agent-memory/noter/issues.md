@@ -1,2 +1,1 @@
 - [ ] 2026-11-17 notes/group-head-gasket-yearly: open bet (gasket replaced once a year, an assumed "usual interval"); nothing in knowledge/ or any transcript mentions a gasket. See its Dossier. User or the machine manual supplies the interval to settle.
-- [ ] 2026-11-17 noter/notes/sachet-demand-six-months, last-descale-shot-count-unknown: open bets from the sachet-stock answer; user supplies real shots per day and shots since last descale. See Dossier / Open.

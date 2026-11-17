@@ -16,7 +16,7 @@ metadata:
   modified: 2026-11-11T11:53:05.759Z
 ---
 
-The descaler the user uses is the **citric2** sachets, one sachet per descale as in `knowledge/descaling.md` → Procedure, step 2.
+The descaler the user uses is the **citric2** sachets, one sachet per descale as in `knowledge/descaling.md` → Steps, step 2.
 
 **Why:** User stated it on 2026-11-11. `knowledge/descaling.md` only says "one sachet of citric descaler" and doesn't name the product.
 
