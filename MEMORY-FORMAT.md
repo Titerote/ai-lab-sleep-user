@@ -69,15 +69,6 @@ How I know: knowledge/descaling.md, "Schedule" section.
 
 Rules:
 - One claim per note. If the agent wrote three claims in one file, settle splits them.
-  "Several claims" means unrelated subjects (a gasket interval, a water fact,
-  a person fact) — not one estimate and the inputs it rests on. A note an
-  agent wrote under `notes/` to record the assumptions behind one answer
-  (a rate, a margin, the number derived from them) is one bet: settle adds
-  frontmatter and locators to that file in place, keeps its path and
-  `origin: note`, and never splits it into new notes or turns it into a
-  stub. An input another note already holds is linked from it, not moved.
-  Only a topic file outside `notes/` (auto memory's `maintenance.md` kind)
-  is split; even then, a split never replaces an agent's own `notes/` file.
 - `corrected` keeps the old claim below a `## Was` heading so history reads in place.
 - `retired` notes are moved to `notes/_retired/`, never deleted (git keeps them anyway).
 - Writers never set `status` or `origin`; a note without frontmatter is a

@@ -52,9 +52,7 @@ is not that clone, it is at `$SLEEP_HOME/user`, default `~/.ai-lab-sleep/user`;
   `agent-memory/_user/`. Every file there except `MEMORY.md` and `wiki/` is a
   note to settle, whatever auto memory named it. A file holding several
   claims: split it into `notes/<slug>.md`, one claim each, and leave a link
-  in its place. An agent's own `notes/` file recording one answer's
-  assumptions is one bet, settled in place, never split (MEMORY-FORMAT.md
-  "Rules").
+  in its place.
 - `issues.md` in each root — problems raised by the last relate phase.
 - `projects.yaml` — projects you may clone. Clone each project read-only
   into `$SLEEP_HOME/work/<slug>` (or pull if present) and read it at its
