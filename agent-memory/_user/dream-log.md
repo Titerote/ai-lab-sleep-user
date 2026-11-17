@@ -64,3 +64,13 @@
   - _user/notes/feedback_shot_counting (confirmed, note): no / no / n/a / yes / none
 - Open issue (descaling.md Schedule 200 vs 150 in Changes/water.md) still awaits the user.
 - Counts settled by origin: note 0 / transcript 0 / filed 0.
+
+## 2026-11-17 settle (eighth pass)
+- No new main.jsonl or subagent files, no outbox. Only new files are hook probe logs (probe/*.jsonl), which hold no user turns or agent bets; recorded as consumed. Project main ce9776b unchanged; knowledge/ last changed in 6bf7773.
+- Ledger (visible? / contradicted? / bet? / right root? / action):
+  - _main/ai-lab-sleep-project/notes/burr-40kg-figure-may-be-stale (corrected, transcript): no / no / closed / project / none
+  - _main/ai-lab-sleep-project/notes/descaler-product (confirmed, note): no / no / n/a / project / none
+  - _user/notes/beans-2kg-per-month (confirmed, filed): no / no / n/a / yes / none
+  - _user/notes/feedback_shot_counting (confirmed, note): no / no / n/a / yes / none
+- Open issue (descaling.md Schedule 200 vs 150 in Changes/water.md) still awaits the user.
+- Counts settled by origin: note 0 / transcript 0 / filed 0.
