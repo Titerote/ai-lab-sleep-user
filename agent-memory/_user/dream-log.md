@@ -116,3 +116,24 @@
 
 ## 2026-11-17 dream(promote) — second pass
 - MEMORY.md refreshed: wiki/coffee-consumption added to map.
+
+## 2026-11-17 settle (pass 3, cloud outbox)
+
+Read (new): 3d798663 subagents a088de89/abbf48af/ae2b280c (dream phases: settle/promote/relate runs, no bets), 3da63ac1 main + subagent a37debc1 + memory-outbox (noter, cloud), 4dad6406 main + subagent a0d50150 (this settle run, T8 test prompt). Project main 8dc74fd.
+
+Outbox applied: `noter/MEMORY.md` (repo copy unchanged since last_shipped; no conflict), `noter/notes/descaler-storage-left-drawer.md`.
+
+Assumptions per file: none stated by agents in new transcripts (3da63ac1 agent only recorded a user statement). User fact: sachets kept in left kitchen drawer (3da63ac1 main#9cefa58f) -> new `_user/notes/descaler-storage-left-drawer.md`, confirmed, origin filed (a record, not a settlement); stub left at noter/notes/.
+
+Ledger (visible / contradicted / bet / root / action):
+- _main/.../burr-40kg-figure-may-be-stale: no / no / no / ok / none
+- _main/.../burr-brush-due-unknown: no / no / open bet, dossier regenerated, Open kept / ok / issue line added
+- _main/.../descaler-product: no / no / no / ok / none
+- _user/notes/beans-2kg-per-month: no / no / no / ok / none
+- _user/notes/feedback_shot_counting: no / no / no / ok / none
+- _user/notes/two-double-shots-a-day: no / no / open bet, dossier regenerated / ok / issue already open
+- _user/notes/descaler-storage-left-drawer: no / no / no / ok (moved from noter) / created
+- noter/notes/group-head-gasket-yearly: no (grep finds no gasket in project) / no / open bet, dossier regenerated / ok / issue already open
+- noter/maintenance.md: link stub, no claim
+
+Counts by origin (live notes): note 5 (incl. stub-less), transcript 2, filed 3.

@@ -1,5 +1,5 @@
 {
-  "last_settled": "2026-11-17T17:55:20Z",
+  "last_settled": "2026-11-17T22:15:00Z",
   "consumed": [
     "tx/ai-lab-sleep-project/3b4dc28f-b301-5149-aa5c-4eb570eb51fd/main.jsonl",
     "tx/ai-lab-sleep-project/3b4dc28f-b301-5149-aa5c-4eb570eb51fd/probe/Stop.jsonl",
@@ -120,10 +120,19 @@
     "tx/ai-lab-sleep-project/f1eb9a45-ebb0-5459-ad0e-2a1756fa35d3/subagents/agent-a2852f74019cef8c2.jsonl",
     "tx/ai-lab-sleep-project/3d798663-7167-48ec-a1d9-7ff087ab2248/main.jsonl",
     "tx/ai-lab-sleep-project/3de1b0b0-6482-42ca-bc53-8b27366896ab/subagents/agent-a3307409c7150bbee.jsonl",
-    "tx/ai-lab-sleep-project/3de1b0b0-6482-42ca-bc53-8b27366896ab/subagents/agent-a7ff0d3a98c8fc716.jsonl"
+    "tx/ai-lab-sleep-project/3de1b0b0-6482-42ca-bc53-8b27366896ab/subagents/agent-a7ff0d3a98c8fc716.jsonl",
+    "tx/ai-lab-sleep-project/3d798663-7167-48ec-a1d9-7ff087ab2248/subagents/agent-a088de895b2ec9993.jsonl",
+    "tx/ai-lab-sleep-project/3d798663-7167-48ec-a1d9-7ff087ab2248/subagents/agent-abbf48af35a63b1c5.jsonl",
+    "tx/ai-lab-sleep-project/3d798663-7167-48ec-a1d9-7ff087ab2248/subagents/agent-ae2b280c72a8602cb.jsonl",
+    "tx/ai-lab-sleep-project/3da63ac1-6df7-56bc-bc4c-753f33e461b2/main.jsonl",
+    "tx/ai-lab-sleep-project/3da63ac1-6df7-56bc-bc4c-753f33e461b2/subagents/agent-a37debc1948eab408.jsonl",
+    "tx/ai-lab-sleep-project/4dad6406-1e72-4c6e-a892-3e8b36aaf747/main.jsonl",
+    "tx/ai-lab-sleep-project/4dad6406-1e72-4c6e-a892-3e8b36aaf747/subagents/agent-a0d5015068cf2e71b.jsonl"
   ],
-  "outboxes_consumed": [],
+  "outboxes_consumed": [
+    "tx/ai-lab-sleep-project/3da63ac1-6df7-56bc-bc4c-753f33e461b2/memory-outbox"
+  ],
   "project_main": {
-    "ai-lab-sleep-project": "9afb0122848283b6eff0e6b827ea4d69de3d6eb5"
+    "ai-lab-sleep-project": "8dc74fd56b3f8dc7a5df518eb793894b2cc96f57"
   }
 }
