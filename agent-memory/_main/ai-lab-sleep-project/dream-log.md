@@ -88,3 +88,6 @@
 
 ## 2026-11-17 dream(promote) — third pass
 - MEMORY.md: added confirmed descaler-drawer rule (source _user), mirrored to noter and main.
+
+## 2026-11-17 dream(settle) — fourth pass
+descaler-product body: "Steps" corrected to "Procedure"; issue ticked. burr-brush-due-unknown dossier regenerated, still open (needs user's last-brush date).

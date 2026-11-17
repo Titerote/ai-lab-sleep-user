@@ -136,3 +136,17 @@
 
 ## 2026-11-17 dream(promote) — third pass
 - MEMORY.md: added confirmed descaler-drawer rule (source _user), mirrored to noter and main. Fixed "Steps" -> "Procedure" in the citric2 knowledge proposal.
+
+## 2026-11-17 dream(settle) — fourth pass
+Read: tx 4c10eb5f main.jsonl (T9 runner) and subagents/agent-a2aff49efddb920e2 (noter, sachet stock); 4dad6406 subagents a88d012e/a021af1a/a75b9810 (relate/promote/settle runs, no assumptions, no user facts); probes of 4dad6406, 3da63ac1, 3d798663, 4c10eb5f. No outbox.
+Per-assumption (noter, dcd2239d): 2 kg/month rate -> [[_user/notes/beans-2kg-per-month]] (input only); ~111 shots/mo, 666 in 6 months, 5 sachets -> new noter/notes/sachet-demand-six-months; last descale count unknown -> new noter/notes/last-descale-shot-count-unknown; two doubles/day -> _user/notes/two-double-shots-a-day; 150 cadence, one sachet per descale, 18 g dose -> visible in knowledge/ (retired descale-every-150-shots). Original noter/notes/sachet-stock-six-months-assumptions.md split, left as link stub.
+Ledger (visible/contradicted/bet/right root/action):
+  - _main burr-40kg-figure-may-be-stale: no/no/closed/yes/none (rename issue open)
+  - _main burr-brush-due-unknown: no/no/open, dossier regenerated/yes/none
+  - _main descaler-product: no/no/n/a/yes/body "Steps" -> "Procedure"
+  - _user beans-2kg-per-month, descaler-storage-left-drawer, feedback_shot_counting: no/no/n/a/yes/none
+  - _user two-double-shots-a-day: no/no/open, dossier regenerated/yes/none
+  - noter group-head-gasket-yearly: no/no/open, dossier regenerated/yes/none
+  - noter sachet-demand-six-months, last-descale-shot-count-unknown: no/no/open (new)/yes/created
+  - noter sachet-stock-six-months-assumptions, maintenance.md: stubs
+Counts of live notes by origin: note 8, transcript 2, filed 1. No user ruling this session.

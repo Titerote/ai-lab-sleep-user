@@ -28,3 +28,6 @@
 
 ## 2026-11-17 dream(promote) — third pass
 - MEMORY.md: added confirmed descaler-drawer rule (source _user), mirrored to noter and main.
+
+## 2026-11-17 dream(settle) — fourth pass
+Split sachet-stock-six-months-assumptions into sachet-demand-six-months and last-descale-shot-count-unknown (both open bets, origin note); dossiers regenerated for the gasket bet. Issue raised in issues.md.
