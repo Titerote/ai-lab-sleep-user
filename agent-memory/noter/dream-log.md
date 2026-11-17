@@ -25,3 +25,6 @@
 
 ## 2026-11-17 settle (pass 4)
 Applied cloud outbox from 3da63ac1: MEMORY.md (adds drawer line) and the drawer note, moved to `_user/notes/descaler-storage-left-drawer.md` (filed) with a stub left here. Gasket bet stays open, dossier regenerated.
+
+## 2026-11-17 dream(promote) — third pass
+- MEMORY.md refreshed against origin/main 8dc74fd: Schedule still says 200 there (150 edit uncommitted in project working tree; content not used as knowledge). Proposals: Schedule proposal widened to 150 plus counting clause; citric2 proposal section name corrected to "Procedure". Mirrors from _user/ checked; unchanged.

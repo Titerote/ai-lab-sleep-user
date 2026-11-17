@@ -85,3 +85,6 @@ No new transcripts bearing on this root. burr-brush-due-unknown stays an open be
 - Project origin/main 8dc74fd: descaling.md "Schedule" still says 200. The 150 edit exists only as an uncommitted working-tree change in the project checkout; content ignored, page keeps saying it is not on main.
 - issues.md: raised descaler-product's prose section name ("Steps" vs "Procedure"). No note-vs-note conflicts; burr-40kg slug issue still open.
 - All [[...]] in wiki/ and notes resolve (only closed issue lines carry historical bare names). No new pages: _user, noter, checker roots have no other subject with two notes beyond what existing pages cover; gasket bet is single.
+
+## 2026-11-17 dream(promote) — third pass
+- MEMORY.md refreshed against origin/main 8dc74fd: Schedule still says 200 there (150 edit uncommitted in project working tree; content not used as knowledge). Proposals: Schedule proposal widened to 150 plus counting clause; citric2 proposal section name corrected to "Procedure". Mirrors from _user/ checked; unchanged.
