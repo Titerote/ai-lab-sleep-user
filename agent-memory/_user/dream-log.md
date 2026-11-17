@@ -31,3 +31,6 @@
   - _main/.../notes/beans-2kg-per-month (stub): n/a
 - Counts settled by origin: note 0 / transcript 0 / filed 0 (no new settlements; filed note moved).
 - Limitation: bet-dossier resolves related notes only within the same root, so the cross-root link [[_user/notes/beans-2kg-per-month]] shows no dossier entry.
+
+## 2026-11-17 settle (burr bet closed)
+- User answer relayed in a Mac session (not on any transcripts branch): "treat the file as current". burr-40kg-figure-may-be-stale: bet -> corrected (old claim under ## Was; Open and Dossier removed). Issue line ticked. No transcript locator exists for the statement; noted in the note. Descaling 150/200 issue untouched. Counts by origin settled: transcript 1.
