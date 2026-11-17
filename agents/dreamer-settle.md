@@ -40,7 +40,9 @@ is not that clone, it is at `$SLEEP_HOME/user`, default `~/.ai-lab-sleep/user`;
   `main.jsonl` is only a test command or a lab-runner's work still carries
   real bets in `subagents/`; judge each file by its own records. Add every
   file you read to `consumed`. If your prompt names a session or file to
-  re-read, read it even though it is consumed.
+  re-read, read it even though it is consumed. `scripts/dream-state.py new
+  $SLEEP_HOME/tx/<slug>` prints exactly the new files and outbox directories;
+  start from its output.
 - Where an agent's words are in a record: assistant text blocks, and the
   `input.message` of an assistant `tool_use` named `SubagentHandback`
   (a subagent's final answer is often only there). Cite that record's
@@ -180,11 +182,12 @@ reads it to find topic files). Do not edit `knowledge/` anywhere.
 End, every run: append one entry to `agent-memory/_user/dream-log.md` (the
 run's summary: which files were read, the per-assumption list, the filled
 ledger, counts by origin) and one to each other root's `dream-log.md` that
-you changed. Update `dream-state.json` (`last_settled` = now as a full UTC
-timestamp, `consumed` = every transcript file and outbox read so far — an
-outbox as its directory, `tx/<slug>/<session>/memory-outbox`, in that same
-`consumed` list, never under another key — and
-the project `main` commit each sweep was run against). Commit everything
+you changed. Update `dream-state.json` only through
+`scripts/dream-state.py settled --consumed <every file and outbox dir you read>
+--project <slug>=<main sha the sweep ran against>` (it sets `last_settled`,
+deduplicates, keeps the three keys; an outbox is its directory
+`tx/<slug>/<session>/memory-outbox`); never edit the file by hand or with
+inline Python. Commit everything
 under `agent-memory/` and `dream-state.json` with message
 `dream(settle): …` and push to `main`. End by listing every file you
 changed, and only files that are in the commit: run `git show --stat
