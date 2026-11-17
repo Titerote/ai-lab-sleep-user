@@ -63,6 +63,13 @@ The loop. When a check fails:
   directory on the transcripts branch (`$SLEEP_HOME/tx/<slug>/<session>/probe/`).
   Decide whether the agent under test, a dreamer prompt, a script, the
   hooks, or the test itself is wrong, and say which in the result file.
+- Before fixing anything, ask whether the behaviour that failed the check is
+  what `MEMORY-FORMAT.md` or a dreamer prompt prescribes (a split into one
+  claim per note, a move to another root, a stub left behind, a retirement).
+  If it is, the test is wrong, not the lab: record the check as failed with
+  "test defect: expects <x>, format prescribes <y>", change nothing, and go
+  on to the next check. A lab fix that would make the dreamer do less of what
+  the format says is never the answer.
 - Fix the lab, not the test. You may edit `agents/*.md`, `scripts/*`, and
   `MEMORY-FORMAT.md` in the user repo and `.claude/settings.json` or
   `scripts/` in the project. Commit each fix on its own with a message that
