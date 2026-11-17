@@ -6,7 +6,8 @@
 - [x] 2026-11-12 wiki/descaling: links [[feedback_shot_counting]] and [[descaler-product]] are bare names, not in notes/ (descaler-product is a topic file; the shot-counting note lives under agent-memory/noter/). If settle moves them to notes/<slug>.md, wiki links need updating by relate.
 
   (settle 2026-11-12: moved descaler-product to _main/ai-lab-sleep-project/notes/descaler-product.md and feedback_shot_counting to _user/notes/feedback_shot_counting.md, same filenames so bare-name links still resolve; stubs left at old paths. Relate may repoint wiki links.)
-- [ ] 2026-11-16 knowledge/descaling.md "Schedule" still says 200 shots while "Changes" and water.md say 150; internal inconsistency in the project, user to decide whether to rewrite Schedule. (Memory note on 150 retired; MEMORY.md/wiki links to notes/descale-150-both-setups now point to notes/_retired/, relate/promote to repoint.)
+- [x] 2026-11-16 knowledge/descaling.md "Schedule" still says 200 shots while "Changes" and water.md say 150; internal inconsistency in the project, user to decide whether to rewrite Schedule. (Memory note on 150 retired; MEMORY.md/wiki links to notes/descale-150-both-setups now point to notes/_retired/, relate/promote to repoint.)
+  (2026-11-17: user decided 150; knowledge/descaling.md Schedule rewritten to 150 shots, not yet committed.)
 - [x] 2026-11-17 _main/ai-lab-sleep-project/notes/burr-40kg-figure-may-be-stale.md: open bet; see its Dossier. knowledge/grinder.md#burr-life is undated and unchanged since initial commit; the user decides from the timeline or supplies the date of the 40 kg reading.
   (settle 2026-11-17: user said "treat the file as current", relayed in a Mac session; bet corrected, dossier removed.)
 - [ ] 2026-11-17 _main/ai-lab-sleep-project/notes/burr-brush-due-unknown.md: open bet; knowledge/grinder.md#cleaning has no last-brush date. User supplies when the burrs were last brushed to settle.
