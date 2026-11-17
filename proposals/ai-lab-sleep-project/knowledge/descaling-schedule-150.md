@@ -2,7 +2,7 @@
 
 File and section: `knowledge/descaling.md`, "Schedule" (line 5).
 
-Status: the 200 -> 150 part is done in the project working tree (user decision 2026-11-17, uncommitted at promote time); only the counting clause remains.
+Status: the 200 -> 150 part is done and committed on origin/main (0bf559c); only the counting clause remains.
 
 Current text: "Descale the boiler every 150 shots. Count shots on the machine's counter; it resets when you hold the brew button for five seconds."
 

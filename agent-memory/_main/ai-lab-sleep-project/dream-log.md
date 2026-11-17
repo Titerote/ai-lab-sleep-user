@@ -100,3 +100,6 @@ No new bets or user facts. Dossiers of open bets regenerated. Renamed burr-40kg-
 - wiki/grinder-burr-life: repointed to notes/burr-40kg-figure-current (renamed by settle).
 - issues.md: raised MEMORY.md cadence line still calling the Schedule edit uncommitted (for promote).
 - No note-vs-note conflicts beyond those already open. Gasket and burr-brush bets: single notes, no new page. All [[...]] in wiki/ and notes resolve.
+
+## 2026-11-17 dream(promote) — fourth pass
+- MEMORY.md: cadence line no longer calls the Schedule edit uncommitted (on origin/main 0bf559c); burr link repointed to notes/burr-40kg-figure-current (issue ticked). Proposal descaling-schedule-150 status updated: only the counting clause remains. No new proposals. The project checkout has no uncommitted content read.
