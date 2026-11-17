@@ -55,7 +55,7 @@ Checks: run each check's command exactly as written and compare with its
 expected result. Quote the actual output in the result file next to the
 expectation. `scripts/bet-dossier.py` and `scripts/notes-ledger.sh` are
 read-only and always safe to run. Never mark a check passed on a reading
-of your own; the command's output is the verdict.
+of your own; the command's output is the verdict. Run every check through `bash -c '<command>'`: the checks are written for bash and your shell may be zsh (T7 finding 4).
 
 The loop. When a check fails:
 - Diagnose from evidence: the subagent's reply, the dream-log entry, the
