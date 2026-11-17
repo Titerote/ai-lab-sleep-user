@@ -45,8 +45,8 @@ origin: note           # note: the agent wrote it at the moment (a real bet)
 project: ai-lab-sleep-project
 made: 2026-11-10       # when the belief was held (the turn's time, for origin: transcript)
 settled:               # date, by settle
-evidence:              # filled by settle
-  - transcripts/ai-lab-sleep-project/<session>/agent-<id>.jsonl
+evidence:              # locators, filled by settle (grammar below)
+  - transcripts/ai-lab-sleep-project/<session>/main.jsonl#<uuid>  # "the quoted turn"
   - knowledge/descaling.md#schedule
 ---
 Descale every 200 shots.
@@ -62,6 +62,35 @@ Rules:
   `bet` of `origin: note` by definition.
 - The share of notes by origin, per agent, is the measure of whether the
   writers file their bets or the dreamer has to recover them.
+
+### Evidence locators
+
+Every `evidence:` entry points at one place a script can open again. A YAML
+comment after it may carry a short quote for the reader.
+
+| form | points at |
+|---|---|
+| `transcripts/<slug>/<session>/main.jsonl#<uuid>` | one record of the user's session (`uuid` field) |
+| `transcripts/<slug>/<session>/subagents/<file>.jsonl#<uuid>` | one record of an agent run |
+| `<path>#<heading-slug>` | a section of a file in the project repo (`## Burr life` → `#burr-life`) |
+| `<path>:<line>` or `<path>:<a>-<b>` | lines of a file in the project repo |
+
+A transcript entry without `#<uuid>` is resolved by the first `"quoted phrase"`
+in its comment (legacy notes); new entries always carry the uuid. A project
+path without section or line is not evidence.
+
+### Dossier
+
+An open bet carries a `## Dossier` section at the end of its body, generated
+by `scripts/bet-dossier.py <note> --write` (settle runs it for every `bet`
+and replaces the previous dossier). It is the case file a human — or the
+dreamer — decides from: a dated timeline (the note, each cited turn, each
+change of the cited file lines, each related note), the cited turn with the
+turn before it, `git log -L` of the cited lines at the project's
+`origin/main`, and the related notes' claims. What is still missing goes in
+the note body under `## Open`, above the dossier, where regeneration cannot
+erase it. Everything above `## Dossier` is the note; the dossier is derived
+and replaced on every settle.
 
 ## L2 — wiki (`wiki/<topic>.md`)
 
@@ -95,5 +124,7 @@ out as a proposal under the project's `.claude/rules/` (PR), not here.
 
 - `issues.md` — raised by relate, consumed by settle on the next dream. One
   line per issue: `- [ ] <date> <note or wiki path>: <what's wrong, and what evidence would settle it>`.
+  An open bet settle could not close gets one line here too, pointing at the
+  note's dossier.
 - `dream-log.md` — one entry per dream per phase: what changed and why, with
   the transcript(s) that drove it.
