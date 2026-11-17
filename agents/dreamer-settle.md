@@ -98,12 +98,13 @@ columns for every line, answering four questions per note:
    every change of the cited file lines (`git log -L` in the project), and
    the related notes. Decide from the timeline, not from memory of the
    files. Close the bet if the timeline settles it (cite the dossier line
-   that does). If it stays open, leave the dossier in the note, write under
-   it exactly what is missing, and add one line to `issues.md` pointing at
-   the note: the human decides from the same timeline. A dossier that lists
-   locators it could not resolve is a defect of the note; fix the locators
-   first and run it again. A bet that nothing could ever settle is retired
-   as unsettleable.
+   that does). If it stays open, leave the dossier in the note, write under a
+   `## Open` heading above it exactly what is missing (the script replaces
+   everything from `## Dossier` down), and add one line to `issues.md`
+   pointing at the note: the human decides from the same timeline. A
+   dossier that lists locators it could not resolve is a defect of the
+   note; fix the locators first and run it again. A bet that nothing could
+   ever settle is retired as unsettleable.
 4. Right root? A note lives where its subject is, not where the agent that
    heard it wrote it. The test: would this line answer the same question in
    a different project? Then it is about the person → `_user/notes/`. Only
