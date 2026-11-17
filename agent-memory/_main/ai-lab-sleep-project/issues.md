@@ -13,6 +13,9 @@
 - [ ] 2026-11-17 _main/ai-lab-sleep-project/notes/burr-brush-due-unknown.md: open bet; knowledge/grinder.md#cleaning has no last-brush date. User supplies when the burrs were last brushed to settle.
 - [x] 2026-11-17 MEMORY.md (_main/ai-lab-sleep-project, noter): indexes lag the notes. _main lists burr-40kg-figure-may-be-stale as "open bet" (it is corrected: file is current) and links notes/descale-150-both-setups (now notes/_retired/); noter's rule says "water.md's 300 is stale" though water.md now says 150. Settled by promote rewriting the index lines against the notes; no new evidence needed.
   (relate 2026-11-17: resolved by promote cf180e7; both indexes now list the burr note as corrected, link notes/_retired/, and noter no longer cites 300.)
-- [ ] 2026-11-17 notes/burr-40kg-figure-may-be-stale: slug states the old doubt while the corrected claim says the figure is current; readers of links may take the title as the claim. Settle may rename (e.g. notes/burr-40kg-figure-current) and leave a stub; relate will repoint wiki/grinder-burr-life.
+- [x] 2026-11-17 notes/burr-40kg-figure-may-be-stale: slug states the old doubt while the corrected claim says the figure is current; readers of links may take the title as the claim. Settle may rename (e.g. notes/burr-40kg-figure-current) and leave a stub; relate will repoint wiki/grinder-burr-life.
+  (settle 2026-11-17: renamed to notes/burr-40kg-figure-current, stub left at the old path; relate repoints wiki/grinder-burr-life, promote the index.)
 - [x] 2026-11-17 notes/descaler-product: body cites `knowledge/descaling.md` "→ Steps, step 2", but the section is "Procedure" (its own evidence locator already says #procedure). Settle may correct the section name in the body; evidence: knowledge/descaling.md at origin/main has no "Steps" heading.
   (settle 2026-11-17: body corrected to "Procedure"; proposal already fixed by promote.)
+
+- [ ] 2026-11-17 notes/burr-40kg-figure-current: its evidence says the user's "treat the file as current" has no transcript locator and `_user/decisions.md` does not exist; the user can restate the ruling to a dream session to log it.

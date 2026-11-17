@@ -14,7 +14,7 @@ How I know: split from `sachet-stock-six-months-assumptions`. The 2 kg a month i
 
 ## Dossier
 
-_generated 2026-11-17T22:57Z by scripts/bet-dossier.py; status bet, origin note, project ai-lab-sleep-project_
+_generated 2026-11-17T23:07Z by scripts/bet-dossier.py; status bet, origin note, project ai-lab-sleep-project_
 
 ### Timeline
 

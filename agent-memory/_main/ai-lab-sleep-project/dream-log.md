@@ -91,3 +91,6 @@
 
 ## 2026-11-17 dream(settle) — fourth pass
 descaler-product body: "Steps" corrected to "Procedure"; issue ticked. burr-brush-due-unknown dossier regenerated, still open (needs user's last-brush date).
+
+## 2026-11-17 dream(settle) — fifth pass
+No new bets or user facts. Dossiers of open bets regenerated. Renamed burr-40kg-figure-may-be-stale to burr-40kg-figure-current (stub left); issue ticked.

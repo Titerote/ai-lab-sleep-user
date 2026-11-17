@@ -31,3 +31,6 @@
 
 ## 2026-11-17 dream(settle) — fourth pass
 Split sachet-stock-six-months-assumptions into sachet-demand-six-months and last-descale-shot-count-unknown (both open bets, origin note); dossiers regenerated for the gasket bet. Issue raised in issues.md.
+
+## 2026-11-17 dream(settle) — fifth pass
+No new bets or user facts. Dossiers of open bets regenerated.

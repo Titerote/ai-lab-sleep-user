@@ -150,3 +150,17 @@ Ledger (visible/contradicted/bet/right root/action):
   - noter sachet-demand-six-months, last-descale-shot-count-unknown: no/no/open (new)/yes/created
   - noter sachet-stock-six-months-assumptions, maintenance.md: stubs
 Counts of live notes by origin: note 8, transcript 2, filed 1. No user ruling this session.
+
+## 2026-11-17 dream(settle) — fifth pass
+Read (new): tx 061f0110 main.jsonl (T9 attempt-2 runner, a test command) and probes; 4c10eb5f main.jsonl (T9 attempt-1 runner), subagents a103da04 (aborted settle run, no output) and a1c9567b/a2aff49e (already settled in the fourth pass, re-read); probes of 4c10eb5f. No outbox. Consumed updated via dream-state.py.
+Per-assumption list: none new. The runners state no assumptions and no user facts; noter assumptions (2 kg/month -> _user/notes/beans-2kg-per-month; 111 shots/mo, 5 sachets -> noter/notes/sachet-demand-six-months; last descale unknown -> noter/notes/last-descale-shot-count-unknown; two doubles/day -> _user/notes/two-double-shots-a-day) were captured last pass. Format prescribes the split, so the stub at noter/notes/sachet-stock-six-months-assumptions stands.
+Ledger (visible/contradicted/bet/right root/action):
+  - _main burr-40kg-figure-may-be-stale -> burr-40kg-figure-current: no/no/closed (corrected)/yes/renamed, stub left
+  - _main burr-brush-due-unknown: no/no/open, dossier regenerated/yes/none
+  - _main descaler-product: no/no/n/a/yes/none
+  - _user beans-2kg-per-month, descaler-storage-left-drawer, feedback_shot_counting: no/no/n/a/yes/none
+  - _user two-double-shots-a-day: no/no/open, dossier regenerated/yes/none
+  - noter group-head-gasket-yearly: no/no/open, dossier regenerated/yes/none
+  - noter sachet-demand-six-months, last-descale-shot-count-unknown: no/no/open, dossier regenerated/yes/none
+  - noter maintenance.md, sachet-stock-six-months-assumptions: link stubs
+Counts of live notes by origin: note 8, transcript 2, filed 1; created 0. Filed this pass: none.

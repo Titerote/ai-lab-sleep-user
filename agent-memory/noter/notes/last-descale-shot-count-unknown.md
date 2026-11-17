@@ -17,12 +17,13 @@ Missing: the user stating shots since the last descale (or its date).
 
 ## Dossier
 
-_generated 2026-11-17T22:57Z by scripts/bet-dossier.py; status bet, origin note, project ai-lab-sleep-project_
+_generated 2026-11-17T23:07Z by scripts/bet-dossier.py; status bet, origin note, project ai-lab-sleep-project_
 
 ### Timeline
 
 - 2026-11-10 00:00  `knowledge/descaling.md` changed in 428e46e: Angeles Saez: initial commit
 - 2026-11-11 00:00  related note made (confirmed): [[_user/notes/feedback_shot_counting]] — The user counts shots from the last descale, not from the machine's counter reset.
+- 2026-11-17 00:00  `knowledge/descaling.md` changed in 0bf559c: Tite: tests(T9): checks follow a split (NOTES = the stub links), the format prescribes it
 - 2026-11-17 22:56  note made (note): `agent-memory/noter/notes/last-descale-shot-count-unknown.md`
 - 2026-11-17 22:56  turn in `ai-lab-sleep-project/4c10eb5f…/agent-a2aff49efddb920e2.jsonl` (assistant): [handback] Keep 5 sachets in stock for the next six months. The knowledge files don't give
 
@@ -56,7 +57,7 @@ Current text:
 ```
 ## Schedule
 
-Descale the boiler every 200 shots. Count shots on the machine's counter; it
+Descale the boiler every 150 shots. Count shots on the machine's counter; it
 resets when you hold the brew button for five seconds.
 
 ```
@@ -64,6 +65,18 @@ resets when you hold the brew button for five seconds.
 History:
 
 ```
+@@ 0bf559c 2026-11-17 Tite: tests(T9): checks follow a split (NOTES = the stub links), the format prescribes it
+
+diff --git a/knowledge/descaling.md b/knowledge/descaling.md
+--- a/knowledge/descaling.md
++++ b/knowledge/descaling.md
+@@ -3,5 +3,5 @@
+ ## Schedule
+ 
+-Descale the boiler every 200 shots. Count shots on the machine's counter; it
++Descale the boiler every 150 shots. Count shots on the machine's counter; it
+ resets when you hold the brew button for five seconds.
+ 
 @@ 428e46e 2026-11-10 Angeles Saez: initial commit
 
 diff --git a/knowledge/descaling.md b/knowledge/descaling.md
