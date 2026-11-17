@@ -6,6 +6,7 @@ made: 2026-11-11
 settled: 2026-11-11
 evidence:
   - transcripts/ai-lab-sleep-project/edfe0f20-781c-469f-b262-23d97bc68f33/main.jsonl#71097852-5ea8-4efd-9e2f-f17c213f06e0  # user turn: "I always count shots from the last descale, not from the counter reset"
+  - transcripts/ai-lab-sleep-project/b70f89e8-d860-4e8a-b7ce-1367c1d10742/subagents/agent-aa669d0a8bd7d1170.jsonl  # unresolved: no record matched (settle 2026-11-17); checker: unsupported by knowledge, not contradicted
   - knowledge/descaling.md#schedule  # defines counting by machine counter (resets on 5s hold); user convention is a stated preference, user turn outranks
 name: shot-counting-from-last-descale
 description: User counts espresso shots since the last descale, not since the counter reset. Use that baseline when answering shot-count or descale-due questions.
