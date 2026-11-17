@@ -82,7 +82,7 @@ Billing: this session and every subagent run on the user's subscription.
 Never run `claude -p`, never set `ANTHROPIC_API_KEY`, never start another
 `claude` process; everything happens as subagents of this session.
 
-The result file, `tests/results/<id>-<date>.md`:
+The result file, `tests/results/<id>-<date>.md` (or the exact path your prompt names, when it names one; an outer loop may run you once per attempt and read the previous attempt's file first):
 ```
 # <id> — <passed|failed> — <date>
 inputs: project <sha>, user <sha>, dreamer models: settle <m> relate <m> promote <m>
