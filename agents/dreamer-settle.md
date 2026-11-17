@@ -52,6 +52,15 @@ is a locator, optionally followed by a YAML comment:
 - a place in the project: `knowledge/<file>.md#<heading-slug>` for a section,
   `knowledge/<file>.md:<line>` for a line (any path in the project repo
   works). Never cite a file without a section or line.
+- the uuid alone is enough; a record needs no quotable text to be cited.
+  Cite the record where the belief or statement appears, not a file read
+  made before it.
+- evidence is never deleted. An entry you cannot resolve to a record keeps
+  its path and comment with `# unresolved:` and why, and gets a line in
+  `issues.md`; removing it would erase what the note rested on.
+- links between notes: `[[notes/<slug>]]` inside one root,
+  `[[_user/notes/<slug>]]`, `[[_main/<project>/notes/<slug>]]` or
+  `[[<agent>/notes/<slug>]]` across roots.
 
 Step 0, before anything else: apply the outbox. For each new session with a
 `memory-outbox/`, copy every file under it to the same path under
