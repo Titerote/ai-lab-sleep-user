@@ -89,3 +89,6 @@
   - _user/notes/feedback_shot_counting (confirmed, note): no / no / n/a / yes / none
 - Open issues: descaling.md Schedule 200 vs 150; burr last-brush date.
 - Counts: created transcript 1; settled note 0 / filed 0.
+
+## 2026-11-17 dream(promote)
+- Rewrote MEMORY.md; index lines repointed to current notes (retired cadence note, corrected burr note, _user links); mirrored _user rules to noter/checker.

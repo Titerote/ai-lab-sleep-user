@@ -13,3 +13,6 @@
 
 ## 2026-11-12 settle (second pass)
 - feedback_shot_counting moved to _user/notes/ (about the person's convention); stub left. Not re-settled.
+
+## 2026-11-17 dream(promote)
+- Rewrote MEMORY.md; index lines repointed to current notes (retired cadence note, corrected burr note, _user links); mirrored _user rules to noter/checker.

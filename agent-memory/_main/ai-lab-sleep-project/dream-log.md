@@ -63,3 +63,7 @@
 - Rewrote wiki/grinder-burr-life: burr 40 kg note now corrected (file current), beans link repointed to _user/notes, added open bet notes/burr-brush-due-unknown.
 - All wiki links resolve; no dangling links in notes; no note-vs-note contradictions. Raised: stale index lines (MEMORY.md _main and noter), burr-40kg slug contradicts its corrected claim.
 - No wiki for _user, noter, checker roots: no subject there has two notes in that root alone (cross-root subjects covered by the project pages).
+
+## 2026-11-17 dream(promote)
+- Rewrote MEMORY.md; index lines repointed to current notes (retired cadence note, corrected burr note, _user links); mirrored _user rules to noter/checker.
+- Proposals: rule-lane cadence and citric2 proposals withdrawn (facts, not rules); replaced by knowledge proposals descaling-schedule-150 and descaler-product-citric2.
