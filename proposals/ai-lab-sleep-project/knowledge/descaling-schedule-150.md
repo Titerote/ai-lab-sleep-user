@@ -1,10 +1,10 @@
-# knowledge/descaling.md, "Schedule": 150 shots and counting baseline
+# knowledge/descaling.md, "Schedule": shot-counting baseline
 
 File and section: `knowledge/descaling.md`, "Schedule" (line 5).
 
-Status: origin/main (8dc74fd) still says 200 in "Schedule". The user decided 150 on 2026-11-17 and the edit exists only uncommitted in the project working tree, so this proposal covers both the number and the counting clause.
+Status: the 200 -> 150 part is done in the project working tree (user decision 2026-11-17, uncommitted at promote time); only the counting clause remains.
 
-Current text on main: "Descale the boiler every 200 shots. Count shots on the machine's counter; it resets when you hold the brew button for five seconds."
+Current text: "Descale the boiler every 150 shots. Count shots on the machine's counter; it resets when you hold the brew button for five seconds."
 
 Proposed text: "Descale the boiler every 150 shots. Count shots from the last descale, not from the counter reset." (or keep the counter wording; user to decide.)
 

@@ -1,6 +1,6 @@
-# knowledge/descaling.md, "Procedure" step 2: product name
+# knowledge/descaling.md, "Steps" step 2: product name
 
-File and section: `knowledge/descaling.md`, "Procedure", step 2 (line 11).
+File and section: `knowledge/descaling.md`, "Steps", step 2 (line 11).
 
 Current text: "Fill the tank with 1 L water and one sachet of citric descaler."
 
