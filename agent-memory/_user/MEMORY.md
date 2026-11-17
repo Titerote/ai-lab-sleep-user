@@ -11,5 +11,6 @@ matter into each agent's index with a link back.
 - The household uses about 2 kg of beans a month. [note](notes/beans-2kg-per-month.md)
 
 ## Map
+- [wiki/coffee-consumption.md](wiki/coffee-consumption.md) — beans rate (2 kg/month) vs the open two-doubles-a-day bet ([note](notes/two-double-shots-a-day.md))
 - `notes/` — one claim per file
 - `wiki/`, `issues.md`, `dream-log.md`

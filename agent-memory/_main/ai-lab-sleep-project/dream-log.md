@@ -73,3 +73,6 @@
 - wiki/grinder-burr-life: links new _user/wiki/coffee-consumption.
 - issues.md: index-lag issue ticked (fixed by promote cf180e7). No new note-vs-note conflicts; two-doubles vs 2 kg already in _user/issues.md.
 - noter/notes/group-head-gasket-yearly: single note on its subject, no page. All [[...]] in wiki/ and notes resolve.
+
+## 2026-11-17 dream(promote) — second pass
+- MEMORY.md refreshed: cadence rule reflects the Schedule edit in the working tree; linked _user coffee wiki; descaling-schedule-150 proposal narrowed to the counting clause.

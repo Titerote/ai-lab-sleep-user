@@ -1,11 +1,13 @@
-# knowledge/descaling.md, "Schedule": 200 should read 150
+# knowledge/descaling.md, "Schedule": shot-counting baseline
 
 File and section: `knowledge/descaling.md`, "Schedule" (line 5).
 
-Current text: "Descale the boiler every 200 shots. Count shots on the machine's counter; it ..."
+Status: the 200 -> 150 part is done in the project working tree (user decision 2026-11-17, uncommitted at promote time); only the counting clause remains.
 
-Proposed text: "Descale the boiler every 150 shots, whether or not the filter is installed." The shot-counting clause also needs the user's convention: shots are counted from the last descale, not from the counter reset (decide whether to keep the counter wording).
+Current text: "Descale the boiler every 150 shots. Count shots on the machine's counter; it resets when you hold the brew button for five seconds."
 
-Why: the same file's "Changes" entry (2026-10-02) says 200 -> 150, and `knowledge/water.md` now says 150 either way. Only Schedule is stale.
+Proposed text: "Descale the boiler every 150 shots. Count shots from the last descale, not from the counter reset." (or keep the counter wording; user to decide.)
 
-Source and evidence: [retired note](../../../agent-memory/_main/ai-lab-sleep-project/notes/_retired/descale-150-both-setups.md); [counting note](../../../agent-memory/_user/notes/feedback_shot_counting.md); issue in `agent-memory/_main/ai-lab-sleep-project/issues.md` (2026-11-16). Replaces the earlier rule-lane proposal, which was a fact and is withdrawn (the water.md part was accepted).
+Why: the user counts from the last descale; the file defines counting by the counter, which resets on a 5 s hold.
+
+Source and evidence: [counting note](../../../agent-memory/_user/notes/feedback_shot_counting.md) (user turn edfe0f20.../main.jsonl#71097852-5ea8-4efd-9e2f-f17c213f06e0); [retired cadence note](../../../agent-memory/_main/ai-lab-sleep-project/notes/_retired/descale-150-both-setups.md); issue 2026-11-16 in `agent-memory/_main/ai-lab-sleep-project/issues.md`.

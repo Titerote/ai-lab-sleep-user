@@ -113,3 +113,6 @@
 
 ## 2026-11-17 dream(relate)
 - New wiki/coffee-consumption joining beans-2kg-per-month (confirmed) and two-double-shots-a-day (bet); their tension is already raised in issues.md.
+
+## 2026-11-17 dream(promote) — second pass
+- MEMORY.md refreshed: wiki/coffee-consumption added to map.

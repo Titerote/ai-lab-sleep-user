@@ -6,3 +6,6 @@
 
 ## 2026-11-17 dream(promote)
 - Rewrote MEMORY.md; index lines repointed to current notes (retired cadence note, corrected burr note, _user links); mirrored _user rules to noter/checker.
+
+## 2026-11-17 dream(promote) — second pass
+- MEMORY.md refreshed: mirror unchanged.
