@@ -97,6 +97,22 @@ This section binds settle even where its own prompt is older.
   it, and cite that record's `uuid` as the belief turn
   (`transcripts/<slug>/<session>/subagents/agent-<id>.jsonl#<uuid>`).
 - Add every file you read to `consumed`, subagent files included.
+- Rules changed → re-read. A file consumed before the last commit that
+  touched this section (`git log -1 --format=%cI -- MEMORY-FORMAT.md`) is
+  read again if any assistant record in it states an assumption
+  (`grep -il 'assum' <session>/subagents/*.jsonl` finds the candidates).
+- Every stated assumption is a bet until a note says the same thing. List
+  each one in the dream-log (a reply's "Assumptions" list, or any sentence
+  with "assume", "assuming", "if"), and next to it name the note whose claim
+  matches it, word for word in substance: same subject, same quantity. A note
+  that only supplies an input to the assumption does not capture it. For
+  example, a usage-rate note does not capture "the last burr brushing is
+  unrecorded, so the next one is due about a month after it". With no
+  matching note, create one (`origin: transcript`, `status: bet`, `made:`
+  the record's timestamp, evidence = that record's `#uuid` plus the
+  `knowledge/` section it rests on), then settle it like any bet, running
+  the dossier. "Restates settled notes" is a claim you must back with the
+  matching note's path for each assumption.
 
 ### Dossier
 
