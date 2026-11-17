@@ -1,9 +1,11 @@
 # Descaling
 
-Three confirmed user statements adjust what `knowledge/` says about descaling.
+What memory adds to `knowledge/descaling.md` and `knowledge/water.md`, all from the user.
 
-- Cadence: 150 shots, filtered or not. [[notes/descale-150-both-setups]]
-- Baseline: count shots from the last descale, not the counter reset (noter's note: [[feedback_shot_counting]]).
-- Product: citric2 sachets, one per descale. [[descaler-product]]
+- Cadence: 150 shots, filtered or not. Now stated by water.md and the Changes entry, so the note is retired; descaling.md "Schedule" still says 200 (open in `issues.md`). [[notes/_retired/descale-150-both-setups]]
+- Baseline: count shots from the last descale, not the counter reset; say so when knowledge phrases it by counter. [[_user/notes/feedback_shot_counting]]
+- Product: citric2 sachets, one per descale (knowledge says only "citric"). [[notes/descaler-product]]
 
-All three come from user turns on 2026-11-11 and are not stated in `knowledge/`, which still disagrees on cadence (see `issues.md`). Cite the user and flag the disagreement; never edit `knowledge/`.
+Cite the user for what knowledge lacks; never edit `knowledge/`.
+
+See also: [[wiki/grinder-burr-life]]

@@ -57,3 +57,9 @@
 
 ## 2026-11-17 settle (ninth pass)
 - Added open bet notes/burr-brush-due-unknown (origin transcript) from noter run 3de1b0b0/agent-a00c7590dcd266397; issue raised. Other notes unchanged. Details in _user/dream-log.md.
+
+## 2026-11-17 dream(relate)
+- Rewrote wiki/descaling: cadence link repointed to notes/_retired/descale-150-both-setups (retired, now in knowledge; Schedule 200 still open), shot-counting to [[_user/notes/feedback_shot_counting]], product to [[notes/descaler-product]]; bare-name links fixed.
+- Rewrote wiki/grinder-burr-life: burr 40 kg note now corrected (file current), beans link repointed to _user/notes, added open bet notes/burr-brush-due-unknown.
+- All wiki links resolve; no dangling links in notes; no note-vs-note contradictions. Raised: stale index lines (MEMORY.md _main and noter), burr-40kg slug contradicts its corrected claim.
+- No wiki for _user, noter, checker roots: no subject there has two notes in that root alone (cross-root subjects covered by the project pages).

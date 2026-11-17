@@ -1,10 +1,8 @@
-# Grinder burr life
+# Grinder burrs: wear and brushing
 
-Burr wear is tracked in kilograms of beans, so the open question is how much has passed through since install.
+Both burr questions are measured in kilograms of coffee, so they hinge on the user's rate of about 2 kg a month. [[_user/notes/beans-2kg-per-month]]
 
-- Usage rate: about 2 kg of beans a month, user-stated. [[notes/beans-2kg-per-month]]
-- Starting point: `knowledge/grinder.md` gives an undated "about 40 kg" for the burrs, and one agent doubted it was current. [[notes/burr-40kg-figure-may-be-stale]]
-- Together: 2 kg/month over roughly 20 months since install is about 40 kg, so the file may be roughly current. That weakens the staleness doubt but does not settle it (the note stays a bet). Missing: the date of the 40 kg reading.
-- Side effect: brushing every 2 kg works out to about monthly.
+- Wear: the undated "about 40 kg" in `knowledge/grinder.md` "Burr life" is current by the user's ruling, about 460 kg of rated life left. The rate times ~20 months since install agrees. [[notes/burr-40kg-figure-may-be-stale]] (corrected; title keeps the old doubt)
+- Brushing: every 2 kg, about monthly, but the last brush is unrecorded, so the due date is open until the user supplies it. [[notes/burr-brush-due-unknown]] (bet)
 
 See also: [[wiki/descaling]]
